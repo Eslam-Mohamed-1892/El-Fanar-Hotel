@@ -38,7 +38,7 @@ export default function About() {
   const titleStyle = 'font-bold text-black transition-colors group-hover:text-amber-950'
   return (
     <div className='w-full bg-neutral-100 inter-title'>
-      <div className="upper max-w-3xl mx-auto text-center mt-10 text-black">
+      <div className="upper max-w-[90vw] mx-auto text-center mt-10 text-black">
         <h1 className='font-bold text-lg md:text-2xl lg:text-3xl font playFair-title'>About El Fanar Hotel</h1>
         <p className='md:font-semibold text-gray-600 leading-relaxed mt-4'>Nestled along the beautiful coastline, El Fanar Hotel has been welcoming guests with exceptional hospitality since 2019. Our mission is to provide comfort, elegance, and unforgettable experiences for every visitor</p>
       </div>
