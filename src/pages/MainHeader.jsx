@@ -6,7 +6,7 @@ export default function MainHeader() {
     return (
         <header className="w-full h-[12vh] bg-gray-800 px-10 fixed top-0 left-0 z-20">
             <div className="h-full w-full flex justify-between items-center">
-                <a href="Hero" className="inter-title text-lg md:text-2xl lg:text-4xl text-white font-extrabold">
+                <a href="Hero" className="inter-title text-lg md:text-2xl lg:text-4xl text-white font-bold">
                     El Fanar Hotel
                 </a>
 

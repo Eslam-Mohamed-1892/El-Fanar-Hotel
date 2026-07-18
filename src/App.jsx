@@ -2,6 +2,7 @@ import React from 'react'
 import MainHeader from './pages/MainHeader'
 import Hero from './pages/Hero'
 import About from './pages/About'
+import Explor from './pages/Explor'
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
       <MainHeader />
       <Hero />
       <About />
+      <Explor />
     </main>
   )
 }
