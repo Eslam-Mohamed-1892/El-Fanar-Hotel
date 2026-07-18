@@ -14,7 +14,7 @@ export default function MainHeader() {
                     <a href="hero">Home</a>
                     <a href="about">About</a>
                     <a href="explore el fanar">Explore El Fanar</a>
-                    <a href="#">FAQ</a>
+                    <a href="faq">FAQ</a>
                     <a href="#">Contact</a>
                     <a href="#">Footer</a>
                 </nav>
@@ -28,7 +28,7 @@ export default function MainHeader() {
                     <a href="Hero">Home</a>
                     <a href="About">About</a>
                     <a href="Explore El Fanar">Explore El Fanar</a>
-                    <a href="#">FAQ</a>
+                    <a href="faq">FAQ</a>
                     <a href="#">Contact</a>
                     <a href="#">Footer</a>
                 </div>

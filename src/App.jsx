@@ -4,6 +4,7 @@ import Hero from './pages/Hero'
 import About from './pages/About'
 import Explor from './pages/Explor'
 import FAQ from './pages/FAQ'
+import Contact from './pages/Contact'
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <About />
       <Explor />
       <FAQ />
+      <Contact />
     </main>
   )
 }

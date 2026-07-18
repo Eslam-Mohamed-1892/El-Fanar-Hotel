@@ -39,7 +39,7 @@ export default function FAQ() {
             answer: "Yes, parking facilities are available for hotel guests."
         }
     ]
-        return (
+    return (
         <section className='w-full bg-neutral-100 py-5 px-6 inter-font'>
             <div className='text-center mb-8'>
                 <h1 className='text-black font-bold text-lg md:text-2xl lg:text-3xl font playFair-font'>
@@ -51,11 +51,14 @@ export default function FAQ() {
             </div>
             <div className='max-w-4xl mx-auto flex flex-col gap-4'>
                 {
-                    questions.map((item,index)=>(
-                        <div key={item.id}>
+                    questions.map((item, index) => (
+                        <div
+                            key={item.id}
+                            className="bg-white rounded-xl shadow-xl overflow-hidden border border-transparent hover:border-amber-500 transition-all duration-300"
+                        >
                             <button
-                            onClick={()=>setOpenIndex(openIndex === index ? null : index)}
-                            className='w-full flex justify-between items-center p-5 text-left font-bold text-black'
+                                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                                className='w-full flex justify-between items-center p-5 text-left font-bold text-black'
                             >
                                 <span>{item.question}</span>
                                 <span className="text-amber-500 text-xl">
@@ -63,7 +66,7 @@ export default function FAQ() {
                                 </span>
                             </button>
                             {
-                                openIndex === index &&(
+                                openIndex === index && (
                                     <p className="px-5 pb-5 text-gray-600 leading-relaxed">
                                         {item.answer}
                                     </p>
