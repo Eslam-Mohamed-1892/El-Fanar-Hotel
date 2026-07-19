@@ -70,29 +70,33 @@ export default function Explor() {
         },
     ]
     return (
-        <section className='w-full bg-neutral-100 py-10 px-6'>
+        <section
+            id='explore'
+            name="explore"
+            className='w-full bg-neutral-100 py-10 px-6'
+        >
             <div className='text-center'>
-            <h1 className='text-black font-bold text-lg md:text-2xl lg:text-3xl font playFair-font'>Explore Our Resort</h1>
-            <p className='font-semibold text-gray-600 leading-relaxed mb-6 inter-font my-4'>Discover everything El Fanar Hotel has to offer, from luxurious rooms to relaxing pools and unforgettable dining experiences.</p>
+                <h1 className='text-black font-bold text-lg md:text-2xl lg:text-3xl font playFair-font'>Explore Our Resort</h1>
+                <p className='font-semibold text-gray-600 leading-relaxed mb-6 inter-font my-4'>Discover everything El Fanar Hotel has to offer, from luxurious rooms to relaxing pools and unforgettable dining experiences.</p>
             </div>
             <div className="carousel w-full rounded-xl">
                 {facilities.map((facility) => (
-                <div id={`slide${facility.id}`} key={facility.id} className="carousel-item relative w-full bg-black">
-                    <img
-                        src={facility.img}
-                        alt={facility.alt}
-                        className="w-full h-140 md:h-160 lg:h-140 object-cover" />
-                    <div className='absolute inset-0 bg-black/40'></div>
-                    <div className='absolute bottom-10 md:left-8 flex flex-col gap-5 text-white px-3'>
-                        <h1 className='text-3xl md:text-5xl font-bold playFair-font'>{facility.title}</h1>
-                        <p className='max-w-xl leading-relaxed text-gray-200 inter-font font-bold'>{facility.description}</p>
-                        <button className='text-white font-bold btn btn-info'>{facility.button}</button>
+                    <div id={`slide${facility.id}`} key={facility.id} className="carousel-item relative w-full bg-black">
+                        <img
+                            src={facility.img}
+                            alt={facility.alt}
+                            className="w-full h-140 md:h-160 lg:h-140 object-cover" />
+                        <div className='absolute inset-0 bg-black/40'></div>
+                        <div className='absolute bottom-10 md:left-8 flex flex-col gap-5 text-white px-3'>
+                            <h1 className='text-3xl md:text-5xl font-bold playFair-font'>{facility.title}</h1>
+                            <p className='max-w-xl leading-relaxed text-gray-200 inter-font font-bold'>{facility.description}</p>
+                            <button className='text-white font-bold btn btn-info'>{facility.button}</button>
+                        </div>
+                        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                            <a href={`#${facility.prev}`} className="btn btn-circle bg-black/5 text-white">❮</a>
+                            <a href={`#${facility.next}`} className="btn btn-circle bg-black/5 text-white">❯</a>
+                        </div>
                     </div>
-                    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href={`#${facility.prev}`} className="btn btn-circle bg-black/5 text-white">❮</a>
-                        <a href={`#${facility.next}`} className="btn btn-circle bg-black/5 text-white">❯</a>
-                    </div>
-                </div>
                 ))}
             </div>
         </section>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { HiMenu } from "react-icons/hi";
+import { Link } from "react-scroll";
 
 export default function MainHeader() {
     const [open, setOpen] = useState(false)
@@ -10,13 +11,13 @@ export default function MainHeader() {
                     El Fanar Hotel
                 </a>
 
-                <nav className="inter-font hidden md:flex md:gap-7 text-white font-semibold">
-                    <a href="hero">Home</a>
-                    <a href="about">About</a>
-                    <a href="explore el fanar">Explore El Fanar</a>
-                    <a href="faq">FAQ</a>
-                    <a href="contact">Contact</a>
-                    <a href="#">Footer</a>
+                <nav className="inter-font hidden md:flex md:gap-7 text-white font-semibold cursor-pointer">
+                    <Link offset={-90} spy={true} to='hero' smooth={true} duration={1200} >Home</Link>
+                    <Link offset={-90} spy={true} to='about' smooth={true} duration={1200} >About</Link>
+                    <Link offset={-90} spy={true} to='explore' smooth={true} duration={1200} >Explore El Fanar</Link>
+                    <Link offset={-90} spy={true} to='faq' smooth={true} duration={1200} >FAQ</Link>
+                    <Link offset={-90} spy={true} to='contact' smooth={true} duration={1200} >Contact</Link>
+                    <Link offset={-90} spy={true} to='footer' smooth={true} duration={1200} >Footer</Link>
                 </nav>
                 <HiMenu
                     className='w-7 h-7 cursor-pointer md:hidden text-white'
@@ -24,13 +25,13 @@ export default function MainHeader() {
                 />
             </div>
             {open && (
-                <div className="inter-font flex md:hidden flex-col items-center gap-4 py-6 text-white bg-[#0e0e0ea2]">
-                    <a href="Hero">Home</a>
-                    <a href="About">About</a>
-                    <a href="Explore El Fanar">Explore El Fanar</a>
-                    <a href="faq">FAQ</a>
-                    <a href="contact">Contact</a>
-                    <a href="#">Footer</a>
+                <div className="cursor-pointer inter-font flex md:hidden flex-col items-center gap-4 py-6 text-white bg-[#0e0e0ea2]">
+                    <Link offset={-90} spy={true} to='hero' smooth={true} duration={1200} >Home</Link>
+                    <Link offset={-90} spy={true} to='about' smooth={true} duration={1200} >About</Link>
+                    <Link offset={-90} spy={true} to='explore' smooth={true} duration={1200} >Explore El Fanar</Link>
+                    <Link offset={-90} spy={true} to='faq' smooth={true} duration={1200} >FAQ</Link>
+                    <Link offset={-90} spy={true} to='contact' smooth={true} duration={1200} >Contact</Link>
+                    <Link offset={-90} spy={true} to='footer' smooth={true} duration={1200} >Footer</Link>
                 </div>
             )}
         </header>

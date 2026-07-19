@@ -4,6 +4,8 @@ import Heroo from '../images/Heroo.webp'
 export default function Hero() {
   return (
     <section
+      id='hero'
+      name="hero"
       className="w-full h-screen bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${Heroo})` }}
     >

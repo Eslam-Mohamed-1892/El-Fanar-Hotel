@@ -33,7 +33,11 @@ export default function Contact() {
         },
     ]
     return (
-        <section className='w-full bg-neutral-100 pt-10 pb-20 px-6 inter-font'>
+        <section
+            id='contact' 
+            name="contact"
+            className='w-full bg-neutral-100 pt-10 pb-20 px-6 inter-font'
+        >
             <div className='text-center mb-8'>
                 <h1 className='text-black font-bold text-lg md:text-2xl lg:text-3xl font playFair-font'>
                     Contact Us
@@ -55,7 +59,7 @@ export default function Contact() {
                     }
                     <div className='flex items-center gap-4'>
                         <img className='size-8' src={team} alt="" />
-                    <p className='font-semibold text-gray-600 break-all'>Our team is always ready to help you. Feel free to contact us anytime.</p>
+                        <p className='font-semibold text-gray-600 break-all'>Our team is always ready to help you. Feel free to contact us anytime.</p>
                     </div>
                 </div>
                 <div className='flex flex-col gap-8 w-full lg:w-[58%] bg-white rounded-2xl shadow-2xl p-8'>
@@ -77,7 +81,7 @@ export default function Contact() {
                             className="textarea textarea-info w-full bg-neutral-100 mb-5"
                             rows={5}
                         />
-                    <button className='btn btn-info text-white font-semibold w-full'>Submit</button>    
+                        <button className='btn btn-info text-white font-semibold w-full'>Submit</button>
                     </div>
                 </div>
             </div>
