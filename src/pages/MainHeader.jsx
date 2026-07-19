@@ -15,7 +15,7 @@ export default function MainHeader() {
                     <a href="about">About</a>
                     <a href="explore el fanar">Explore El Fanar</a>
                     <a href="faq">FAQ</a>
-                    <a href="#">Contact</a>
+                    <a href="contact">Contact</a>
                     <a href="#">Footer</a>
                 </nav>
                 <HiMenu
@@ -29,7 +29,7 @@ export default function MainHeader() {
                     <a href="About">About</a>
                     <a href="Explore El Fanar">Explore El Fanar</a>
                     <a href="faq">FAQ</a>
-                    <a href="#">Contact</a>
+                    <a href="contact">Contact</a>
                     <a href="#">Footer</a>
                 </div>
             )}

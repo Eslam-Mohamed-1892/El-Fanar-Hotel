@@ -11,7 +11,7 @@ export default function Contact() {
             id: 1,
             img: address,
             p1: "Address: ",
-            p2: "el sokhna"
+            p2: "Ain Sokhna, Egypt"
         },
         {
             id: 2,
@@ -33,7 +33,7 @@ export default function Contact() {
         },
     ]
     return (
-        <section className='w-full bg-neutral-100 pt-10 px-6 inter-font'>
+        <section className='w-full bg-neutral-100 pt-10 pb-20 px-6 inter-font'>
             <div className='text-center mb-8'>
                 <h1 className='text-black font-bold text-lg md:text-2xl lg:text-3xl font playFair-font'>
                     Contact Us
@@ -69,7 +69,7 @@ export default function Contact() {
                     </div>
                     <div>
                         <h1 className='font-bold text-black text-[20px] pb-3'>Phone: </h1>
-                        <input className='w-full focus:shadow-2xl transition-all input input-info text-black font-bold bg-neutral-100 placeholder:text-black placeholder:font-semibold' placeholder='Enter a Valid Phon Number' type="text" />
+                        <input className='w-full focus:shadow-2xl transition-all input input-info text-black font-bold bg-neutral-100 placeholder:text-black placeholder:font-semibold' placeholder='Enter a Valid Phone Number' type="text" />
                     </div>
                     <div>
                         <h1 className='font-bold text-black text-[20px] pb-3'>Message: </h1>
