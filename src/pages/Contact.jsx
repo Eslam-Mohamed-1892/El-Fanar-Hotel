@@ -1,9 +1,9 @@
 import React from 'react'
-import address from '../images/home.png'
-import phone from '../images/viber.png'
-import email from '../images/email.png'
-import reception from '../images/counter.png'
-import team from '../images/team.png'
+import address from '../images/contact/home.png'
+import phone from '../images/contact/viber.png'
+import email from '../images/contact/email.png'
+import reception from '../images/contact/counter.png'
+import team from '../images/contact/team.png'
 
 export default function Contact() {
     const data = [
@@ -36,7 +36,7 @@ export default function Contact() {
         <section
             id='contact' 
             name="contact"
-            className='w-full bg-neutral-100 pt-10 pb-20 px-6 inter-font'
+            className='w-full bg-neutral-100 pt-10 pb-20 px-6 md:px-8 lg:px-10 inter-font'
         >
             <div className='text-center mb-8'>
                 <h1 className='text-black font-bold text-lg md:text-2xl lg:text-3xl font playFair-font'>

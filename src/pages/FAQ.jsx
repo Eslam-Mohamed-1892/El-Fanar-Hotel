@@ -43,7 +43,7 @@ export default function FAQ() {
         <section 
         id='faq'
         name="faq"
-        className='w-full bg-neutral-100 py-5 px-6 inter-font'
+        className='w-full bg-neutral-100 py-5 px-6 md:px-8 lg:px-10 inter-font'
         >
             <div className='text-center mb-8'>
                 <h1 className='text-black font-bold text-lg md:text-2xl lg:text-3xl font playFair-font'>

@@ -1,10 +1,10 @@
 import React from 'react'
-import Room from '../images/Room.jpg'
-import mainRestuarant from '../images/mainRestuarant.jpg'
-import jarelbarh from '../images/jarElBahr.webp'
-import pool from '../images/pool.jpg'
-import aqua from '../images/aqua.jpg'
-import poolBar from '../images/bar.jpg'
+import Room from '../images/explore/Room.jpg'
+import mainRestuarant from '../images/explore/mainRestuarant.jpg'
+import jarelbarh from '../images/explore/jarElBahr.webp'
+import pool from '../images/explore/pool.jpg'
+import aqua from '../images/explore/aqua.jpg'
+import poolBar from '../images/explore/bar.jpg'
 
 export default function Explor() {
     const facilities = [
@@ -73,7 +73,7 @@ export default function Explor() {
         <section
             id='explore'
             name="explore"
-            className='w-full bg-neutral-100 py-10 px-6'
+            className='w-full bg-neutral-100 py-10 px-6 md:px-8 lg:px-10'
         >
             <div className='text-center'>
                 <h1 className='text-[#000000] font-bold text-lg md:text-2xl lg:text-3xl font playFair-font'>Explore Our Resort</h1>

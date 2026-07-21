@@ -6,6 +6,8 @@ import Explor from './pages/Explor'
 import FAQ from './pages/FAQ'
 import Contact from './pages/Contact'
 import Footer from './pages/Footer'
+import Booking from './pages/Booking'
+import { Toaster } from 'react-hot-toast';
 
 export default function App() {
   return (
@@ -15,8 +17,10 @@ export default function App() {
       <About />
       <Explor />
       <FAQ />
+      <Booking />
       <Contact />
       <Footer />
+      <Toaster />
     </main>
   )
 }

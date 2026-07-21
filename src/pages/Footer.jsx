@@ -1,10 +1,10 @@
 import React from 'react'
 import { CiFacebook } from "react-icons/ci";
 import { SiInstagram } from "react-icons/si";
-import address from '../images/pin.png'
-import phone from '../images/phone-call.png'
-import email from '../images/email2.png'
-import reception from '../images/desk2.png'
+import address from '../images/footer/pin.png'
+import phone from '../images/footer/phone-call.png'
+import email from '../images/footer/email2.png'
+import reception from '../images/footer/desk2.png'
 import { Link } from "react-scroll";
 
 export default function Footer() {
@@ -38,7 +38,7 @@ export default function Footer() {
         <footer
             id='footer'
             name="footer"
-            className='w-full bg-[#0F2D3C] text-white inter-font px-6 py-10'
+            className='w-full bg-[#0F2D3C] text-white inter-font px-6 md:px-8 lg:px-10 py-10'
         >
             <div className='w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-8'>
                 <div className='flex flex-col gap-3 mb-4'>
@@ -52,7 +52,8 @@ export default function Footer() {
                         <Link spy={true} offset={-90} to='about' smooth={true} duration={1200} className='hover:text-[#D4AF37] transition-colors hover:translate-x-1'>About</Link>
                         <Link spy={true} offset={-90} to='explore' smooth={true} duration={1200} className='hover:text-[#D4AF37] transition-colors hover:translate-x-1'>Explore El Fanar</Link>
                         <Link spy={true} offset={-90} to='faq' smooth={true} duration={1200} className='hover:text-[#D4AF37] transition-colors hover:translate-x-1'>FAQ</Link>
-                        <Link spy={true} offset={-90} to='contact' smooth={true} duration={1200} className='hover:text-[#D4AF37] transition-colors hover:translate-x-1'>Contact</Link>
+                        <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='booking' smooth={true} duration={1200} >Booking</Link>
+                        <Link spy={true} offset={-90} to='contact' smooth={true} duration={1200} className='hover:text-[#D4AF37] tranfooter/sition-colors hover:translate-x-1'>Contact</Link>
                     </nav>
                 </div>
                 <div className='flex flex-col gap-3 mb-4'>
@@ -79,7 +80,7 @@ export default function Footer() {
             </div>
             <div className='flex flex-col gap-3 mb-6 mt-6'>
                 <p className='font-semibold md:text-center'>Ready for your next vacation?</p>
-                <button to='contact' smooth={true} className='btn btn-outline btn-info text-white'>Book Now</button>
+                <button className='btn btn-outline btn-info text-white'>Book Now</button>
             </div>
             <div className='border-solid bg-white border-2 mb-4'></div>
             <p className='font-semibold text-center'>Designed with ❤️ using React & Tailwind CSS.</p>

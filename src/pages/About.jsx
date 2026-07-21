@@ -1,8 +1,8 @@
 import React from 'react'
-import exp from '../images/industry.png'
-import room from '../images/room.png'
-import people from '../images/group.png'
-import rate from '../images/rating.png'
+import exp from '../images/about/industry.png'
+import room from '../images/about/room.png'
+import people from '../images/about/group.png'
+import rate from '../images/about/rating.png'
 
 
 export default function About() {
@@ -40,13 +40,13 @@ export default function About() {
     <section
       id='about'
       name='about'
-      className='w-full bg-neutral-100 inter-font'
+      className='w-full bg-neutral-100 inter-font px-6 md:px-8 lg:px-10'
     >
       <div className="upper max-w-[90vw] mx-auto text-center text-[#000000] mt-8">
         <h1 className='font-bold text-lg md:text-2xl lg:text-3xl font playFair-font'>About El Fanar Hotel</h1>
         <p className='font-semibold text-[#1F2937] leading-relaxed inter-font my-4'>Nestled along the beautiful coastline, El Fanar Hotel has been welcoming guests with exceptional hospitality since 2019. Our mission is to provide comfort, elegance, and unforgettable experiences for every visitor</p>
       </div>
-      <div className="lower grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-6">
+      <div className="lower grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {cards.map((card) => (
           <div key={card.id} className={cardStyle}>
             <img src={card.image} className={imgStyle} />
