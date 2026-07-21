@@ -49,7 +49,7 @@ export default function FAQ() {
                 <h1 className='text-black font-bold text-lg md:text-2xl lg:text-3xl font playFair-font'>
                     Frequently Asked Questions
                 </h1>
-                <p className='font-semibold text-gray-600 leading-relaxed mb-6 my-4'>
+                <p className='font-semibold text-[#1F2937] leading-relaxed mb-6 my-4'>
                     Find answers to the most common questions about your stay at El Fanar Hotel.
                 </p>
             </div>
@@ -58,20 +58,20 @@ export default function FAQ() {
                     questions.map((item, index) => (
                         <div
                             key={item.id}
-                            className="bg-white rounded-xl shadow-xl overflow-hidden border border-transparent hover:border-amber-500 transition-all duration-300"
+                            className="bg-white rounded-xl shadow-xl overflow-hidden border border-transparent hover:border-[#D4AF37] transition-all duration-300"
                         >
                             <button
                                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                                 className='w-full flex justify-between items-center p-5 text-left font-bold text-black'
                             >
                                 <span>{item.question}</span>
-                                <span className="text-amber-500 text-xl">
+                                <span className="text-[#D4AF37] text-xl">
                                     {openIndex === index ? "-" : "+"}
                                 </span>
                             </button>
                             {
                                 openIndex === index && (
-                                    <p className="px-5 pb-5 text-gray-600 leading-relaxed">
+                                    <p className="px-5 pb-5 text-[#1F2937] leading-relaxed">
                                         {item.answer}
                                     </p>
                                 )

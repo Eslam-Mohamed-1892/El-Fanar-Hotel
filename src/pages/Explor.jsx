@@ -76,8 +76,8 @@ export default function Explor() {
             className='w-full bg-neutral-100 py-10 px-6'
         >
             <div className='text-center'>
-                <h1 className='text-black font-bold text-lg md:text-2xl lg:text-3xl font playFair-font'>Explore Our Resort</h1>
-                <p className='font-semibold text-gray-600 leading-relaxed mb-6 inter-font my-4'>Discover everything El Fanar Hotel has to offer, from luxurious rooms to relaxing pools and unforgettable dining experiences.</p>
+                <h1 className='text-[#000000] font-bold text-lg md:text-2xl lg:text-3xl font playFair-font'>Explore Our Resort</h1>
+                <p className='font-semibold text-[#1F2937] leading-relaxed mb-6 inter-font my-4'>Discover everything El Fanar Hotel has to offer, from luxurious rooms to relaxing pools and unforgettable dining experiences.</p>
             </div>
             <div className="carousel w-full rounded-xl">
                 {facilities.map((facility) => (
