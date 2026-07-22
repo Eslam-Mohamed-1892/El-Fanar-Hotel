@@ -1,4 +1,4 @@
-import React, { Children } from 'react'
+import React from 'react'
 import king from '../images/booking/king.jpg'
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -22,17 +22,33 @@ export default function Booking() {
       .max(6, "Maximum 10 guests"),
 
     children: Yup.number()
-      .required("Please enter number of children")
-      .min(1, "Minimum 1 guest")
-      .max(6, "Maximum 10 guests"),
-
+      .transform((value, originalValue) => {
+        return originalValue === "" ? null : value;
+      })
+      .nullable()
+      .min(0, "Children cannot be negative")
+      .max(10, "Maximum 10 children"),
     age: Yup.array()
-      .required("Please enter child age")
-      .min(0, "Age cannot be negative")
-      .max(17, "Please enter a valid child age"),
+      .test(
+        "children-age",
+        "Please enter all children ages",
+        function (value) {
+          const { children } = this.parent;
 
-    roomType: Yup.string()
-      .required("Please select a room"),
+          if (!children || Number(children) === 0) {
+            return true;
+          }
+
+          return value && value.length === Number(children);
+        }
+      )
+      .of(
+        Yup.number()
+          .required("Please enter child age")
+          .min(0, "Age cannot be negative")
+          .max(17, "Please enter a valid child age")
+      ), roomType: Yup.string()
+        .required("Please select a room"),
 
     request: Yup.string()
       .max(300, "Maximum 300 characters"),
@@ -132,7 +148,7 @@ export default function Booking() {
               type="number"
               name='children'
               onBlur={formik.handleBlur}
-              min='1'
+              min='0'
               max='10'
               value={formik.values.children}
               onChange={formik.handleChange}
