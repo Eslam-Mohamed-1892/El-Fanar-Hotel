@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Children } from 'react'
 import king from '../images/booking/king.jpg'
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -17,9 +17,19 @@ export default function Booking() {
       ),
 
     guests: Yup.number()
-      .required("Please enter number of guests")
+      .required("Please enter number of adults")
       .min(1, "Minimum 1 guest")
       .max(6, "Maximum 10 guests"),
+
+    children: Yup.number()
+      .required("Please enter number of children")
+      .min(1, "Minimum 1 guest")
+      .max(6, "Maximum 10 guests"),
+
+    age: Yup.array()
+      .required("Please enter child age")
+      .min(0, "Age cannot be negative")
+      .max(17, "Please enter a valid child age"),
 
     roomType: Yup.string()
       .required("Please select a room"),
@@ -33,6 +43,8 @@ export default function Booking() {
       checkIn: "",
       checkOut: "",
       guests: "",
+      children: "",
+      age: [],
       roomType: "",
       request: "",
     },
@@ -42,6 +54,7 @@ export default function Booking() {
     onSubmit: (values) => {
       toast.success("Booking request sent successfully!");
       console.log(values);
+      console.log(formik.values.age);
     },
   });
   return (
@@ -94,7 +107,7 @@ export default function Booking() {
             )}
           </div>
           <div className='flex flex-col gap-3'>
-            <label htmlFor="guests" className='font-semibold text-[#1F2937] leading-relaxed'>Guests</label>
+            <label htmlFor="guests" className='font-semibold text-[#1F2937] leading-relaxed'>Guests: Adult</label>
             <input
               id='guests'
               type="number"
@@ -112,6 +125,44 @@ export default function Booking() {
               </p>
             )}
           </div>
+          <div className='flex flex-col gap-3'>
+            <label htmlFor="children" className='font-semibold text-[#1F2937] leading-relaxed'>Guests: Cheldren</label>
+            <input
+              id='children'
+              type="number"
+              name='children'
+              onBlur={formik.handleBlur}
+              min='1'
+              max='10'
+              value={formik.values.children}
+              onChange={formik.handleChange}
+              className="input input-info w-full focus:shadow-2xl transition-all text-black font-bold bg-neutral-100 placeholder:text-black placeholder:font-semibold"
+            />
+            {formik.touched.children && formik.errors.children && (
+              <p className="text-red-500 text-sm">
+                {formik.errors.children}
+              </p>
+            )}
+          </div>
+          {Array.from({
+            length: Number(formik.values.children)
+          }).map((_, index) => (
+            <div key={index} className="flex flex-col gap-3">
+              <label className="font-semibold">
+                Child {index + 1} Age
+              </label>
+
+              <input
+                type="number"
+                name={`age.${index}`}
+                value={formik.values.age[index] || ""}
+                onChange={formik.handleChange}
+                className="input input-info w-full bg-neutral-100"
+                min="0"
+                max="17"
+              />
+            </div>
+          ))}
           <div className='flex flex-col gap-3'>
             <label htmlFor="roomType" className='font-semibold text-[#1F2937] leading-relaxed'>Room Type</label>
             <select

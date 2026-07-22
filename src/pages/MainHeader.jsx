@@ -7,7 +7,7 @@ export default function MainHeader() {
     return (
         <header className="w-full h-[12vh] bg-[#102A43]  px-6 md:px-8 lg:px-10 fixed top-0 left-0 z-20">
             <div className="h-full w-full flex justify-between items-center">
-                <Link to='hero' smooth={true} duration={1200} className="inter-font text-lg md:text-2xl lg:text-4xl text-[#D4AF37] font-bold">
+                <Link to='hero' smooth={true} duration={1200} className="inter-font text-2xl md:text-2xl lg:text-4xl text-[#D4AF37] font-bold">
                     El Fanar Hotel
                 </Link>
 
