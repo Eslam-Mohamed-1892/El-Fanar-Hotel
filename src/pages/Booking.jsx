@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import king from '../images/booking/king.jpg'
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -16,7 +16,7 @@ export default function Booking() {
         "Check Out must be after Check In"
       ),
 
-    guests: Yup.number()
+    adult: Yup.number()
       .required("Please enter number of adults")
       .min(1, "Minimum 1 guest")
       .max(6, "Maximum 10 guests"),
@@ -58,7 +58,7 @@ export default function Booking() {
     initialValues: {
       checkIn: "",
       checkOut: "",
-      guests: "",
+      adult: "",
       children: "",
       age: [],
       roomType: "",
@@ -67,12 +67,28 @@ export default function Booking() {
 
     validationSchema: bookingSchema,
 
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
+
       toast.success("Booking request sent successfully!");
-      console.log(values);
-      console.log(formik.values.age);
-    },
+
+      localStorage.setItem(
+        "booking",
+        JSON.stringify(values)
+      );
+
+      resetForm();
+    }
   });
+  useEffect(() => {
+    const childrenCount = Number(formik.values.children);
+
+    if (formik.values.age.length > childrenCount) {
+      formik.setFieldValue(
+        "age",
+        formik.values.age.slice(0, childrenCount)
+      );
+    }
+  }, [formik.values.children]);
   return (
     <section
       id='booking'
@@ -83,13 +99,13 @@ export default function Booking() {
         <h1 className='font-bold text-lg md:text-2xl lg:text-3xl font playFair-font text-[#D4AF37]'>Book Your Stay</h1>
         <p className='font-semibold text-[#1F2937] leading-relaxed mb-6 my-4'>Choose your dates and reserve now.</p>
       </div>
-      <div className='flex gap-10 lg:gap-16'>
+      <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
         <form
           onSubmit={formik.handleSubmit}
-          className='w-full lg:w-[45%] flex flex-col gap-5 text-[#1F2937] bg-white rounded-3xl shadow-2xl p-8'
+          className='w-full lg:w-[45%] flex flex-col gap-7 text-[#1F2937] bg-white rounded-3xl shadow-2xl p-8'
         >
-          <div className='flex flex-col gap-3'>
-            <label htmlFor="checkIn" className='font-semibold text-[#1F2937] leading-relaxed'>Check In</label>
+          <div className='flex flex-col gap-2'>
+            <label htmlFor="checkIn" className='font-semibold text-black leading-relaxed'>Check In</label>
             <input
               id='checkIn'
               type="date"
@@ -97,7 +113,10 @@ export default function Booking() {
               onBlur={formik.handleBlur}
               value={formik.values.checkIn}
               onChange={formik.handleChange}
-              className="input input-info w-full bg-neutral-100"
+              className={`input w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100 ${formik.touched.checkIn && formik.errors.checkIn
+                ? "input-error"
+                : "input-info"
+                }`}
             />
             {formik.touched.checkIn && formik.errors.checkIn && (
               <p className="text-red-500 text-sm">
@@ -105,8 +124,8 @@ export default function Booking() {
               </p>
             )}
           </div>
-          <div className='flex flex-col gap-3'>
-            <label htmlFor="checkOut" className='font-semibold text-[#1F2937] leading-relaxed'>Check Out</label>
+          <div className='flex flex-col gap-2'>
+            <label htmlFor="checkOut" className='font-semibold text-black leading-relaxed'>Check Out</label>
             <input
               id='checkOut'
               type="date"
@@ -114,7 +133,10 @@ export default function Booking() {
               onBlur={formik.handleBlur}
               value={formik.values.checkOut}
               onChange={formik.handleChange}
-              className="input input-info w-full bg-neutral-100"
+              className={`input w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100 ${formik.touched.checkOut && formik.errors.checkOut
+                ? "input-error"
+                : "input-info"
+                }`}
             />
             {formik.touched.checkOut && formik.errors.checkOut && (
               <p className="text-red-500 text-sm">
@@ -122,27 +144,30 @@ export default function Booking() {
               </p>
             )}
           </div>
-          <div className='flex flex-col gap-3'>
-            <label htmlFor="guests" className='font-semibold text-[#1F2937] leading-relaxed'>Guests: Adult</label>
+          <div className='flex flex-col gap-2'>
+            <label htmlFor="adult" className='font-semibold text-black leading-relaxed'>Guest: Adult</label>
             <input
-              id='guests'
+              id='adult'
               type="number"
-              name='guests'
+              name='adult'
               onBlur={formik.handleBlur}
               min='1'
               max='10'
-              value={formik.values.guests}
+              value={formik.values.adult}
               onChange={formik.handleChange}
-              className="input input-info w-full focus:shadow-2xl transition-all text-black font-bold bg-neutral-100 placeholder:text-black placeholder:font-semibold"
+              className={`input w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100 ${formik.touched.adult && formik.errors.adult
+                ? "input-error"
+                : "input-info"
+                }`}
             />
-            {formik.touched.guests && formik.errors.guests && (
+            {formik.touched.adult && formik.errors.adult && (
               <p className="text-red-500 text-sm">
-                {formik.errors.guests}
+                {formik.errors.adult}
               </p>
             )}
           </div>
-          <div className='flex flex-col gap-3'>
-            <label htmlFor="children" className='font-semibold text-[#1F2937] leading-relaxed'>Guests: Cheldren</label>
+          <div className='flex flex-col gap-2'>
+            <label htmlFor="children" className='font-semibold text-black leading-relaxed'>Guests: Cheldren</label>
             <input
               id='children'
               type="number"
@@ -152,7 +177,7 @@ export default function Booking() {
               max='10'
               value={formik.values.children}
               onChange={formik.handleChange}
-              className="input input-info w-full focus:shadow-2xl transition-all text-black font-bold bg-neutral-100 placeholder:text-black placeholder:font-semibold"
+              className='input w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100'
             />
             {formik.touched.children && formik.errors.children && (
               <p className="text-red-500 text-sm">
@@ -163,8 +188,8 @@ export default function Booking() {
           {Array.from({
             length: Number(formik.values.children)
           }).map((_, index) => (
-            <div key={index} className="flex flex-col gap-3">
-              <label className="font-semibold">
+            <div key={index} className="flex flex-col gap-2">
+              <label className="font-semibold text-black">
                 Child {index + 1} Age
               </label>
 
@@ -172,22 +197,29 @@ export default function Booking() {
                 type="number"
                 name={`age.${index}`}
                 value={formik.values.age[index] || ""}
+                onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
-                className="input input-info w-full bg-neutral-100"
+                className={`input w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100 ${formik.touched.age && formik.errors.age
+                  ? "input-error"
+                  : "input-info"
+                  }`}
                 min="0"
                 max="17"
               />
             </div>
           ))}
-          <div className='flex flex-col gap-3'>
-            <label htmlFor="roomType" className='font-semibold text-[#1F2937] leading-relaxed'>Room Type</label>
+          <div className='flex flex-col gap-2'>
+            <label htmlFor="roomType" className='font-semibold text-black leading-relaxed'>Room Type</label>
             <select
               id='roomType'
               name='roomType'
               onBlur={formik.handleBlur}
               value={formik.values.roomType}
               onChange={formik.handleChange}
-              className="select select-info w-full focus:shadow-2xl transition-all text-black font-bold bg-neutral-100 placeholder:text-black placeholder:font-semibold"
+              className={`input w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100 ${formik.touched.roomType && formik.errors.roomType
+                ? "input-error"
+                : "input-info"
+                }`}
             >
               <option value="" disabled>
                 Select your room
@@ -211,15 +243,18 @@ export default function Booking() {
               </p>
             )}
           </div>
-          <div className='flex flex-col gap-3'>
-            <label htmlFor="request" className='font-semibold text-[#1F2937] leading-relaxed'>Special Request</label>
+          <div className='flex flex-col gap-2'>
+            <label htmlFor="request" className='font-semibold text-black leading-relaxed'>Special Request</label>
             <textarea
               id='request'
               name='request'
               onBlur={formik.handleBlur}
               value={formik.values.request}
               onChange={formik.handleChange}
-              className="textarea textarea-info w-full focus:shadow-2xl transition-all text-black font-bold bg-neutral-100 placeholder:text-black placeholder:font-semibold mb-5"
+              className={`textarea  w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100 ${formik.touched.request && formik.errors.request
+                ? "input-error"
+                : "input-info"
+                }`}
               rows={5}
             />
             {formik.touched.request && formik.errors.request && (
