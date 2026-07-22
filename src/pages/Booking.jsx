@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import toast from "react-hot-toast";
 
 export default function Booking() {
+  const today = new Date().toISOString().split("T")[0];
   const bookingSchema = Yup.object({
     checkIn: Yup.date()
       .required("Check In date is required"),
@@ -67,18 +68,24 @@ export default function Booking() {
 
     validationSchema: bookingSchema,
 
-    onSubmit: (values, { resetForm }) => {
+onSubmit: (values, { resetForm }) => {
+  toast.success("Booking request sent successfully!");
 
-      toast.success("Booking request sent successfully!");
+  const oldBookings =
+    JSON.parse(localStorage.getItem("booking")) || [];
 
-      localStorage.setItem(
-        "booking",
-        JSON.stringify(values)
-      );
+  const updatedBookings = [
+    ...oldBookings,
+    values,
+  ];
 
-      resetForm();
-    }
-  });
+  localStorage.setItem(
+    "booking",
+    JSON.stringify(updatedBookings)
+  );
+
+  resetForm();
+}  });
   useEffect(() => {
     const childrenCount = Number(formik.values.children);
 
@@ -88,7 +95,7 @@ export default function Booking() {
         formik.values.age.slice(0, childrenCount)
       );
     }
-  }, [formik.values.children]);
+  }, [formik.values.children, formik.values.age]);
   return (
     <section
       id='booking'
@@ -109,6 +116,7 @@ export default function Booking() {
             <input
               id='checkIn'
               type="date"
+              min={today}
               name='checkIn'
               onBlur={formik.handleBlur}
               value={formik.values.checkIn}
@@ -129,6 +137,7 @@ export default function Booking() {
             <input
               id='checkOut'
               type="date"
+              min={formik.values.checkIn || today}
               name='checkOut'
               onBlur={formik.handleBlur}
               value={formik.values.checkOut}
@@ -167,7 +176,7 @@ export default function Booking() {
             )}
           </div>
           <div className='flex flex-col gap-2'>
-            <label htmlFor="children" className='font-semibold text-black leading-relaxed'>Guests: Cheldren</label>
+            <label htmlFor="children" className='font-semibold text-black leading-relaxed'>Guests: Children</label>
             <input
               id='children'
               type="number"
@@ -177,7 +186,7 @@ export default function Booking() {
               max='10'
               value={formik.values.children}
               onChange={formik.handleChange}
-              className='input w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100'
+              className='input input-info w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100'
             />
             {formik.touched.children && formik.errors.children && (
               <p className="text-red-500 text-sm">
@@ -213,12 +222,12 @@ export default function Booking() {
             <select
               id='roomType'
               name='roomType'
-              onBlur={formik.handleBlur}
+              // onBlur={formik.handleBlur}
               value={formik.values.roomType}
               onChange={formik.handleChange}
-              className={`input w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100 ${formik.touched.roomType && formik.errors.roomType
-                ? "input-error"
-                : "input-info"
+              className={`select w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100 ${formik.touched.roomType && formik.errors.roomType
+                ? "select-error"
+                : "select-info"
                 }`}
             >
               <option value="" disabled>
@@ -251,10 +260,7 @@ export default function Booking() {
               onBlur={formik.handleBlur}
               value={formik.values.request}
               onChange={formik.handleChange}
-              className={`textarea  w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100 ${formik.touched.request && formik.errors.request
-                ? "input-error"
-                : "input-info"
-                }`}
+              className='textarea  w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100 '
               rows={5}
             />
             {formik.touched.request && formik.errors.request && (
