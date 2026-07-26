@@ -68,24 +68,25 @@ export default function Booking() {
 
     validationSchema: bookingSchema,
 
-onSubmit: (values, { resetForm }) => {
-  toast.success("Booking request sent successfully!");
+    onSubmit: (values, { resetForm }) => {
+      toast.success("Booking request sent successfully!");
 
-  const oldBookings =
-    JSON.parse(localStorage.getItem("booking")) || [];
+      const oldBookings =
+        JSON.parse(localStorage.getItem("booking")) || [];
 
-  const updatedBookings = [
-    ...oldBookings,
-    values,
-  ];
+      const updatedBookings = [
+        ...oldBookings,
+        values,
+      ];
 
-  localStorage.setItem(
-    "booking",
-    JSON.stringify(updatedBookings)
-  );
+      localStorage.setItem(
+        "booking",
+        JSON.stringify(updatedBookings)
+      );
 
-  resetForm();
-}  });
+      resetForm();
+    }
+  });
   useEffect(() => {
     const childrenCount = Number(formik.values.children);
 
@@ -112,7 +113,7 @@ onSubmit: (values, { resetForm }) => {
           className='w-full lg:w-[45%] flex flex-col gap-7 text-[#1F2937] bg-white rounded-3xl shadow-2xl p-8'
         >
           <div className='flex flex-col gap-2'>
-            <label htmlFor="checkIn" className='font-semibold text-black leading-relaxed'>Check In</label>
+            <label htmlFor="checkIn" className='font-semibold text-black leading-relaxed text-lg'>Check In</label>
             <input
               id='checkIn'
               type="date"
@@ -133,7 +134,7 @@ onSubmit: (values, { resetForm }) => {
             )}
           </div>
           <div className='flex flex-col gap-2'>
-            <label htmlFor="checkOut" className='font-semibold text-black leading-relaxed'>Check Out</label>
+            <label htmlFor="checkOut" className='font-semibold text-black leading-relaxed text-lg'>Check Out</label>
             <input
               id='checkOut'
               type="date"
@@ -154,7 +155,7 @@ onSubmit: (values, { resetForm }) => {
             )}
           </div>
           <div className='flex flex-col gap-2'>
-            <label htmlFor="adult" className='font-semibold text-black leading-relaxed'>Guest: Adult</label>
+            <label htmlFor="adult" className='font-semibold text-black leading-relaxed text-lg'>Guest: Adult</label>
             <input
               id='adult'
               type="number"
@@ -176,7 +177,7 @@ onSubmit: (values, { resetForm }) => {
             )}
           </div>
           <div className='flex flex-col gap-2'>
-            <label htmlFor="children" className='font-semibold text-black leading-relaxed'>Guests: Children</label>
+            <label htmlFor="children" className='font-semibold text-black leading-relaxed text-lg'>Guests: Children</label>
             <input
               id='children'
               type="number"
@@ -218,7 +219,7 @@ onSubmit: (values, { resetForm }) => {
             </div>
           ))}
           <div className='flex flex-col gap-2'>
-            <label htmlFor="roomType" className='font-semibold text-black leading-relaxed'>Room Type</label>
+            <label htmlFor="roomType" className='font-semibold text-black leading-relaxed text-lg'>Room Type</label>
             <select
               id='roomType'
               name='roomType'
@@ -253,14 +254,14 @@ onSubmit: (values, { resetForm }) => {
             )}
           </div>
           <div className='flex flex-col gap-2'>
-            <label htmlFor="request" className='font-semibold text-black leading-relaxed'>Special Request</label>
+            <label htmlFor="request" className='font-semibold text-black leading-relaxed text-lg'>Special Request</label>
             <textarea
               id='request'
               name='request'
               onBlur={formik.handleBlur}
               value={formik.values.request}
               onChange={formik.handleChange}
-              className='textarea  w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100 '
+              className='textarea w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100 '
               rows={5}
             />
             {formik.touched.request && formik.errors.request && (
