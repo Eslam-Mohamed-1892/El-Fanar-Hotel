@@ -8,6 +8,13 @@ import reception from '../images/footer/desk2.png'
 import { Link } from "react-scroll";
 
 export default function Footer() {
+    const socialLinks = [
+        {
+            id: 1,
+            img: CiFacebook,
+            link: 'https://www.facebook.com/share/14itDM2KewK/',
+        }
+    ]
     const data = [
         {
             id: 1,
@@ -73,14 +80,17 @@ export default function Footer() {
                 <div className='flex flex-col gap-3 mb-4 lg:px-15'>
                     <h1 className='font-extrabold text-[#D4AF37]'>Follow Us</h1>
                     <div className='flex gap-4'>
-                        < CiFacebook size={35} className='w-10 h-10 rounded-full border hover:bg-cyan-500' />
-                        < SiInstagram size={30} className='w-10 h-10 rounded-full border hover:bg-cyan-500' />
+                        {
+                            socialLinks.map((link) => (
+                                <Link><img src={link.img} alt="" /></Link>
+                            ))
+                        }
                     </div>
                 </div>
             </div>
             <div className='flex flex-col gap-3 mb-6 mt-6'>
                 <p className='font-semibold md:text-center'>Ready for your next vacation?</p>
-                <button className='btn btn-outline btn-info text-white'>Book Now</button>
+                <Link to='booking' smooth={true} duration={1200} className='btn btn-outline btn-info text-white'>Book Now</Link>
             </div>
             <div className='border-solid bg-white border-2 mb-4'></div>
             <p className='font-semibold text-center'>Designed with ❤️ using React & Tailwind CSS.</p>

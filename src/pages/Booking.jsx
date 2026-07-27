@@ -155,7 +155,7 @@ export default function Booking() {
             )}
           </div>
           <div className='flex flex-col gap-2'>
-            <label htmlFor="adult" className='font-semibold text-black leading-relaxed text-lg'>Guest: Adult</label>
+            <label htmlFor="adult" className='font-semibold text-black leading-relaxed text-lg'>Guests: Adult</label>
             <input
               id='adult'
               type="number"
