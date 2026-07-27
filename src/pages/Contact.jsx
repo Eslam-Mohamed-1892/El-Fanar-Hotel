@@ -9,18 +9,63 @@ import * as Yup from 'yup'
 import toast from 'react-hot-toast'
 
 export default function Contact() {
+    const countries = [
+        {
+            id: 1,
+            name: "Egypt",
+        },
+        {
+            id: 2,
+            name: "Saudi Arabia",
+        },
+        {
+            id: 3,
+            name: "United Arab Emirates",
+        },
+        {
+            id: 4,
+            name: "Qatar",
+        },
+        {
+            id: 5,
+            name: "Kuwait",
+        },
+        {
+            id: 6,
+            name: "United States",
+        },
+        {
+            id: 7,
+            name: "United Kingdom",
+        },
+        {
+            id: 8,
+            name: "Germany",
+        },
+        {
+            id: 9,
+            name: "France",
+        },
+        {
+            id: 10,
+            name: "Turkey",
+        }
+    ]
     const contactSchema = Yup.object({
         name: Yup.string()
             .required("Name is required")
-            .min(3, "Minimum 10 characters")
+            .min(3, "Minimum 3 characters")
             .max(40, "Maximum 40 characters"),
         email: Yup.string()
             .required("Email is required")
             .email("Please enter a valid email"),
+        country: Yup.string()
+            .required("Country is required"),
         phone: Yup.string()
             .required("Phone number is required")
-            .min(11, "mini 11 number")
-            .max(11, "max 11 number"),
+            .min(11, "Phone must be 11 numbers")
+            .max(11, "Phone must be 11 numbers")
+            .matches(/^[0-9]+$/, "Phone must contain only numbers"),
         message: Yup.string()
             .required("Message is required")
             .min(10, "min 10 characters")
@@ -30,14 +75,22 @@ export default function Contact() {
         initialValues: {
             name: "",
             email: "",
+            country: "",
             phone: "",
             message: ""
         },
 
         validationSchema: contactSchema,
 
-        onSubmit: (values) => {
+        onSubmit: (values, { resetForm }) => {
+            const oldMessages = localStorage.getItem("messages")
+            const messages = JSON.parse(oldMessages) || []
+            messages.push(values)
+            const allMessages = JSON.stringify(messages)
+            localStorage.setItem("messages", allMessages)
+            resetForm();
             toast.success("Message sent successfully!")
+            console.log(values)
         }
     });
     const data = [
@@ -81,7 +134,7 @@ export default function Contact() {
                 </p>
             </div>
             <div className='flex flex-col lg:flex-row justify-between gap-10 text-black font-bold'>
-                <div className='flex flex-col gap-5 lg:grid lg:grid-cols-1 text-black font-bold bg-white rounded-2xl shadow-2xl p-8 lg:bg-transparent lg:shadow-none lg:p-0 w-full lg:w-[38%]'>
+                <div className='flex flex-col gap-5 text-black font-bold bg-white rounded-2xl shadow-2xl p-8 lg:bg-transparent lg:shadow-none lg:p-0 w-full lg:w-[38%]'>
                     {
                         data.map((data) => (
                             <div className='flex gap-4 items-center lg:bg-white lg:rounded-xl lg:shadow-xl lg:p-5 ' key={data.id}>
@@ -150,6 +203,37 @@ export default function Contact() {
                     </div>
                     <div className='flex flex-col gap-2'>
                         <label
+                            htmlFor='country'
+                            className='font-semibold text-[#D4AF37] leading-relaxed text-lg'
+                        >
+                            Country
+                        </label>
+                        <select
+                            id='country'
+                            name='country'
+                            value={formik.values.country}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            className={`select w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100 ${formik.touched.country && formik.errors.country
+                                ? "select-error"
+                                : "select-info"
+                                }`}
+
+                        >
+                            <option value="" disabled>Select your country</option>
+                            {countries.map((country) => (
+                                <option key={country.id} value={country.name} >{country.name}</option>
+                            ))
+                            }
+                        </select>
+                        {formik.touched.country && formik.errors.country && (
+                            <p className='text-red-500 text-sm'>
+                                {formik.errors.country}
+                            </p>
+                        )}
+                    </div>
+                    <div className='flex flex-col gap-2'>
+                        <label
                             htmlFor='phone'
                             className='font-semibold text-[#D4AF37] leading-relaxed text-lg'
                         >
@@ -161,7 +245,7 @@ export default function Contact() {
                             value={formik.values.phone}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            type='text'
+                            type='tel'
                             className={`input w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100 ${formik.touched.phone && formik.errors.phone
                                 ? "input-error"
                                 : "input-info"
@@ -192,7 +276,7 @@ export default function Contact() {
                             rows={5}
                         />
                         {formik.touched.message && formik.errors.message && (
-                            <p className='mb-5 text-red-500 text-sm'>
+                            <p className='text-red-500 text-sm'>
                                 {formik.errors.message}
                             </p>
                         )}

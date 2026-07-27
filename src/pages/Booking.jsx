@@ -204,6 +204,8 @@ export default function Booking() {
               </label>
 
               <input
+                id='age'
+                name='age'
                 type="number"
                 name={`age.${index}`}
                 value={formik.values.age[index] || ""}
@@ -223,7 +225,7 @@ export default function Booking() {
             <select
               id='roomType'
               name='roomType'
-              // onBlur={formik.handleBlur}
+              onBlur={formik.handleBlur}
               value={formik.values.roomType}
               onChange={formik.handleChange}
               className={`select w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100 ${formik.touched.roomType && formik.errors.roomType
