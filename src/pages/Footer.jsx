@@ -1,6 +1,6 @@
 import React from 'react'
-import { CiFacebook } from "react-icons/ci";
-import { SiInstagram } from "react-icons/si";
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import address from '../images/footer/pin.png'
 import phone from '../images/footer/phone-call.png'
 import email from '../images/footer/email2.png'
@@ -11,8 +11,13 @@ export default function Footer() {
     const socialLinks = [
         {
             id: 1,
-            img: CiFacebook,
+            icon: FaFacebook,
             link: 'https://www.facebook.com/share/14itDM2KewK/',
+        },
+        {
+            id: 2,
+            icon: FaInstagram,
+            link: 'https://www.instagram.com/fanardeluna?igsh=MW5tbmJtc3g5czRpcA==',
         }
     ]
     const data = [
@@ -81,10 +86,12 @@ export default function Footer() {
                     <h1 className='font-extrabold text-[#D4AF37]'>Follow Us</h1>
                     <div className='flex gap-4'>
                         {
-                            socialLinks.map((link) => (
-                                <Link><img src={link.img} alt="" /></Link>
+                            socialLinks.map((item) => (
+                                <div key={item.id}>
+                                    <a href={item.link} target="_blank" className='inline-flex justify-center items-center text-4xl h-10 w-10 bg-white text-black rounded-full border hover:bg-[#D4AF37] hover:text-white'><item.icon /></a>
+                                </div>
                             ))
-                        }
+                        }                    
                     </div>
                 </div>
             </div>

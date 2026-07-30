@@ -1,26 +1,17 @@
 import React from 'react'
-import MainHeader from './pages/MainHeader'
-import Hero from './pages/Hero'
-import About from './pages/About'
-import Explor from './pages/Explor'
-import FAQ from './pages/FAQ'
-import Contact from './pages/Contact'
-import Footer from './pages/Footer'
-import Booking from './pages/Booking'
-import { Toaster } from 'react-hot-toast';
+import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 export default function App() {
   return (
     <main className="w-full min-h-screen flex flex-col items-center">
-      <MainHeader />
-      <Hero />
-      <About />
-      <Explor />
-      <FAQ />
-      <Booking />
-      <Contact />
-      <Footer />
-      <Toaster />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </BrowserRouter>
     </main>
   )
 }
