@@ -1,10 +1,10 @@
 import React from 'react'
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import address from '../images/footer/pin.png'
-import phone from '../images/footer/phone-call.png'
-import email from '../images/footer/email2.png'
-import reception from '../images/footer/desk2.png'
+import address from '../../images/footer/pin.png'
+import phone from '../../images/footer/phone-call.png'
+import email from '../../images/footer/email2.png'
+import reception from '../../images/footer/desk2.png'
 import { Link } from "react-scroll";
 
 export default function Footer() {

@@ -1,12 +1,12 @@
 import React from 'react'
-import Room from '../images/explore/Room.jpg'
-import mainRestuarant from '../images/explore/mainRestuarant.jpg'
-import jarelbarh from '../images/explore/jarElBahr.webp'
-import pool from '../images/explore/pool.jpg'
-import aqua from '../images/explore/aqua.jpg'
-import poolBar from '../images/explore/bar.jpg'
+import Room from '../../images/explore/Room.jpg'
+import mainRestuarant from '../../images/explore/mainRestuarant.jpg'
+import jarelbarh from '../../images/explore/jarElBahr.webp'
+import pool from '../../images/explore/pool.jpg'
+import aqua from '../../images/explore/aqua.jpg'
+import poolBar from '../../images/explore/bar.jpg'
 
-export default function Explor() {
+export default function Explore() {
     const facilities = [
         {
             id: 1,

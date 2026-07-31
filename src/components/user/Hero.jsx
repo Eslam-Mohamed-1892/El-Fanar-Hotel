@@ -1,5 +1,5 @@
 import React from 'react'
-import Heroo from '../images/Heroo.webp'
+import Heroo from '../../images/Heroo.webp'
 import { Link } from "react-scroll";
 
 

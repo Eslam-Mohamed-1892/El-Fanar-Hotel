@@ -1,8 +1,8 @@
 import React from 'react'
-import exp from '../images/about/industry.png'
-import room from '../images/about/room.png'
-import people from '../images/about/group.png'
-import rate from '../images/about/rating.png'
+import exp from '../../images/about/industry.png'
+import room from '../../images/about/room.png'
+import people from '../../images/about/group.png'
+import rate from '../../images/about/rating.png'
 
 
 export default function About() {
@@ -40,7 +40,7 @@ export default function About() {
     <section
       id='about'
       name='about'
-      className='w-full bg-neutral-100 inter-font px-6 md:px-8 lg:px-10'
+      className='w-full bg-neutral-100 inter-font px-6 md:px-8 lg:px-10 py-10'
     >
       <div className="upper max-w-[90vw] mx-auto text-center text-[#000000] mt-8">
         <h1 className='font-bold text-lg md:text-2xl lg:text-3xl font playFair-font'>About El Fanar Hotel</h1>

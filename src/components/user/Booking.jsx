@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import king from '../images/booking/king.jpg'
+import king from '../../images/booking/king.jpg'
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
