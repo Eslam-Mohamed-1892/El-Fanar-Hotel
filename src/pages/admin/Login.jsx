@@ -30,7 +30,7 @@ export default function Login() {
         }
     })
     return (
-        <section className='w-full flex justify-center items-center bg-neutral-100 text-black px-8 md:px-0'>
+        <section className='w-full min-h-screen flex justify-center items-center bg-neutral-100 text-black px-8 md:px-0'>
             <form onSubmit={formik.handleSubmit} className='w-full md:max-w-lg lg:max-w-xl flex flex-col gap-6 items-center bg-white rounded-2xl shadow-2xl p-8'>
                 <img src={logo} className='w-21 h-21 md:w-28 md:h-28 rounded-2xl' alt="" />
                 <h1 className='text-2xl md:text-3xl font-bold leading-relaxed'>Admin Login</h1>
