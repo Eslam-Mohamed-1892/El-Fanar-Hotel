@@ -1,7 +1,7 @@
 import React from 'react'
 import Home from './pages/user/Home';
 import Dashboard from './pages/admin/dashboard/Dashboard';
-import Login from './pages/admin/dashboard/Login';
+import Login from './pages/admin/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
