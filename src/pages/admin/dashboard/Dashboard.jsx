@@ -62,6 +62,42 @@ export default function Dashboard() {
       number: 4.9,
       icon: FaStar,
     },
+    {
+      id: 5,
+      title: "Rating",
+      number: 4.9,
+      icon: FaStar,
+    },
+    {
+      id: 6,
+      title: "Rating",
+      number: 4.9,
+      icon: FaStar,
+    },
+    {
+      id: 7,
+      title: "Rating",
+      number: 4.9,
+      icon: FaStar,
+    },
+    {
+      id: 8,
+      title: "Rating",
+      number: 4.9,
+      icon: FaStar,
+    },
+    {
+      id: 9,
+      title: "Rating",
+      number: 4.9,
+      icon: FaStar,
+    },
+    {
+      id: 10,
+      title: "Rating",
+      number: 4.9,
+      icon: FaStar,
+    }
   ];
   return (
     <div className='w-full h-screen bg-neutral-100 overflow-hidden'>
