@@ -1,142 +1,88 @@
 import React, { useState } from 'react'
+import Sidebar from './SideBard';
+import NavBar from './NavBar';
+import DashboardView from './DashboardView';
 import { RiDashboardFill } from "react-icons/ri";
 import { FaCalendarCheck, FaBed, FaStar } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoSettingsSharp } from "react-icons/io5";
-import StatCard from './StatCard';
-import Sidebar from './SideBard';
-import NavBar from './NavBar';
-// import { FiLogOut } from "react-icons/fi";
 
 export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("dashboard");
+  const sectionTitles = {
+    dashboard: "Dashboard",
+    bookings: "Bookings",
+    rooms: "Rooms",
+    messages: "Messages",
+    settings: "Settings"
+  }
+  console.log(activeSection);
   const sidebarLinks = [
     {
       id: 1,
       title: "Dashboard",
-      icon: RiDashboardFill
+      icon: RiDashboardFill,
+      value: "dashboard"
     },
     {
       id: 2,
       title: "Bookings",
-      icon: FaCalendarCheck
+      icon: FaCalendarCheck,
+      value: "bookings"
     },
     {
       id: 3,
       title: "Rooms",
-      icon: FaBed
+      icon: FaBed,
+      value: "rooms"
     },
     {
       id: 4,
       title: "Messages",
-      icon: MdEmail
+      icon: MdEmail,
+      value: "messages"
     },
     {
       id: 5,
       title: "Settings",
-      icon: IoSettingsSharp
+      icon: IoSettingsSharp,
+      value: "settings"
     }
   ]
-  const stats = [
-    {
-      id: 1,
-      title: "Bookings",
-      number: 25,
-      icon: FaCalendarCheck,
-    },
-    {
-      id: 2,
-      title: "Rooms",
-      number: 81,
-      icon: FaBed,
-    },
-    {
-      id: 3,
-      title: "Messages",
-      number: 12,
-      icon: MdEmail,
-    },
-    {
-      id: 4,
-      title: "Rating",
-      number: 4.9,
-      icon: FaStar,
-    },
-    {
-      id: 5,
-      title: "Rating",
-      number: 4.9,
-      icon: FaStar,
-    },
-    {
-      id: 6,
-      title: "Rating",
-      number: 4.9,
-      icon: FaStar,
-    },
-    {
-      id: 7,
-      title: "Rating",
-      number: 4.9,
-      icon: FaStar,
-    },
-    {
-      id: 8,
-      title: "Rating",
-      number: 4.9,
-      icon: FaStar,
-    },
-    {
-      id: 9,
-      title: "Rating",
-      number: 4.9,
-      icon: FaStar,
-    },
-    {
-      id: 10,
-      title: "Rating",
-      number: 4.9,
-      icon: FaStar,
-    }
-  ];
   return (
-    <div className='w-full h-screen bg-neutral-100 overflow-hidden'>
+    <div className='w-full h-screen bg-neutral-100 overflow-hidden inter-font'>
       <div className='flex text-black h-screen'>
         <Sidebar
           links={sidebarLinks}
           open={sidebarOpen}
+          activeSection={activeSection}
+          setActiveSection={setActiveSection}
         />
         {
           sidebarOpen && (
             <div
               onClick={() => setSidebarOpen(false)}
-              className="fixed inset-0 bg-black/0 md:hidden"
+              className="fixed inset-0 bg-black/0 md:hidden z-40"
             />
           )
         }
-        <div className="flex-1 flex flex-col h-screen">
+        <div className="flex-1 flex flex-col h-screen md:ml-64">
 
           <NavBar
             open={sidebarOpen}
             setOpen={setSidebarOpen}
+            title={sectionTitles[activeSection]}
           />
 
-          <div className="flex-1 overflow-y-auto p-5">
+          <div className="flex-1 overflow-y-auto p-5 md:p-6 lg:p-7">
 
-            <div className="grid grid-cols-1 gap-3">
-
-              {stats.map(card => (
-                <StatCard
-                  key={card.id}
-                  title={card.title}
-                  number={card.number}
-                  icon={card.icon}
-                />
-              ))}
-
-            </div>
+            <DashboardView
+              activeSection={activeSection}
+            />
 
           </div>
+
 
         </div>
       </div>
