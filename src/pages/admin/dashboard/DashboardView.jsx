@@ -19,7 +19,7 @@ export default function DashboardView({ activeSection }) {
             return <h1>Messages</h1>;
 
         case "settings":
-            return <h1>Settings</h1>;
+            return <h1>Settings </h1>;
 
         default:
             return <DashboardHome />;
