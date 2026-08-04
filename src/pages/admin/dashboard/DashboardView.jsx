@@ -1,6 +1,9 @@
 import React from 'react'
 import DashboardHome from "./views/DashboardHome";
 import BookingView from "./views/BookingView";
+import RoomsView from './views/RoomsView';
+import MessagesView from './views/Messages';
+import SettingsView from './views/SettingsView';
 
 export default function DashboardView({ activeSection }) {
 
@@ -13,13 +16,13 @@ export default function DashboardView({ activeSection }) {
             return <BookingView />;
 
         case "rooms":
-            return <h1>Rooms</h1>;
+            return <RoomsView />;
 
         case "messages":
-            return <h1>Messages</h1>;
+            return <MessagesView />;
 
         case "settings":
-            return <h1>Settings</h1>;
+            return <SettingsView />;
 
         default:
             return <DashboardHome />;

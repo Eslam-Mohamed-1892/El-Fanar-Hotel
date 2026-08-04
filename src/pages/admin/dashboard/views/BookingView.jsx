@@ -10,7 +10,7 @@ export default function BookingView() {
             room: "1201",
             checkIn: "1/9/2026",
             checkOut: "5/9/2026",
-            status: "Confirmed"
+            status: "Pending"
         },
         {
             id: 2,
@@ -26,7 +26,7 @@ export default function BookingView() {
             room: "1203",
             checkIn: "1/9/2026",
             checkOut: "5/9/2026",
-            status: "Confirmed"
+            status: "Cancelled"
         },
         {
             id: 4,
@@ -42,7 +42,7 @@ export default function BookingView() {
             room: "1205",
             checkIn: "1/9/2026",
             checkOut: "5/9/2026",
-            status: "Confirmed"
+            status: "Cancelled"
         },
         {
             id: 6,
@@ -50,7 +50,7 @@ export default function BookingView() {
             room: "1207",
             checkIn: "1/9/2026",
             checkOut: "5/9/2026",
-            status: "Confirmed"
+            status: "Pending"
         },
     ]
     return (
@@ -61,21 +61,31 @@ export default function BookingView() {
                     <FiSearch className='absolute left-3 top-1/2 -translate-y-1/2 w-6 h-6 text-black z-10' />
                     <input className='input input-info pl-10 bg-white text-gray-700 placeholder:text-gray-700 font-semibold w-full' type="text" placeholder='Search bookings...' />
                 </div>
-                <button className='btn btn-info btn-outline text-[#102A43] active:text-white lg:text-lg'><FiFilter className='text-black w-5 h-5'/> Filter</button>
+                <button className='btn btn-info btn-outline text-[#102A43] active:text-white text-sm md:text-base'><FiFilter className='text-black w-5 h-5' /> Filter</button>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 lg:gap-7'>
-            {
-                bookings.map((booking) =>(
+                {
+                    bookings.map((booking) => (
 
-            <div key={booking.id} className='bg-white rounded-2xl shadow-xl grid gap-3 p-5 text-[#102A43] font-semibold'>
-                <h1>Guest Name: <span className='text-lg font-bold text-black'>{booking.name}</span></h1>
-                <h1>Room: <span className='text-black'>{booking.room}</span></h1>
-                <h1>Check In: <span className='text-black'>{booking.checkIn}</span></h1>
-                <h1>Check Out: <span className='text-black'>{booking.checkOut}</span></h1>
-                <h1>Status: <span className="badge badge-success text-center text-white">{booking.status}</span></h1>
-            </div>
-                ))
-            }
+                        <div key={booking.id} className='bg-white rounded-2xl shadow-xl grid gap-3 p-5 text-[#102A43] font-semibold'>
+                            <h1>Guest Name: <span className='text-lg font-bold text-black'>{booking.name}</span></h1>
+                            <h1>Room: <span className='text-black'>{booking.room}</span></h1>
+                            <h1>Check In: <span className='text-black'>{booking.checkIn}</span></h1>
+                            <h1>Check Out: <span className='text-black'>{booking.checkOut}</span></h1>
+                            <h1>Status: <span
+                                className={`badge text-white 
+                                    ${booking.status === "Confirmed"
+                                        ? "badge-success"
+                                        : booking.status === "Pending"
+                                            ? "badge-warning"
+                                            : "badge-error"
+                                    }`}
+                            >
+                                {booking.status}
+                            </span></h1>
+                        </div>
+                    ))
+                }
             </div>
         </section>
     )

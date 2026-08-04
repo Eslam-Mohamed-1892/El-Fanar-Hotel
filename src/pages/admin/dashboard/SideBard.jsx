@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from '../../../images/login/Logo.jpeg'
 
-export default function Sidebar({ links, open, activeSection, setActiveSection }) {
+export default function Sidebar({ links, open, setOpen, activeSection, setActiveSection }) {
   console.log(open)
   return (
     <aside
@@ -25,7 +25,7 @@ md:translate-x-0
         links.map((link) => (
           <div
             key={link.id}
-            onClick={() => {setActiveSection(link.value); console.log(link.value)}}
+            onClick={() => {setActiveSection(link.value); setOpen(false);}}
             className='flex items-center gap-3 text-[#102A43] cursor-pointer'
           >
             <link.icon className='text-black w-5 h-5 md:w-6 md:h-6' />

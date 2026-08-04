@@ -9,7 +9,7 @@ export default function Navbar({setOpen, title}) {
 
             <LuMenu
                 className='w-6 h-6 text-black md:hidden'
-                onClick={() => setOpen(prev => !prev)}
+                onClick={() => setOpen(prev => !prev) }
             />
 
             <p className='text-lg md:text-xl lg:text-2xl font-semibold text-[#102A43]'>

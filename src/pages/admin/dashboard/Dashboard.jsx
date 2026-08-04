@@ -56,6 +56,7 @@ export default function Dashboard() {
         <Sidebar
           links={sidebarLinks}
           open={sidebarOpen}
+          setOpen={setSidebarOpen}
           activeSection={activeSection}
           setActiveSection={setActiveSection}
         />
