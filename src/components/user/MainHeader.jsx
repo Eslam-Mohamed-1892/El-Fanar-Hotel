@@ -15,6 +15,7 @@ export default function MainHeader() {
                     <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='hero' smooth={true} duration={1200} >Home</Link>
                     <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='about' smooth={true} duration={1200} >About</Link>
                     <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='explore' smooth={true} duration={1200} >Explore El Fanar</Link>
+                    <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='rooms' smooth={true} duration={1200} >Our Rooms</Link>
                     <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='faq' smooth={true} duration={1200} >FAQ</Link>
                     <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='booking' smooth={true} duration={1200} >Booking</Link>
                     <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='contact' smooth={true} duration={1200} >Contact</Link>
@@ -30,6 +31,7 @@ export default function MainHeader() {
                     <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='hero' smooth={true} duration={1200} >Home</Link>
                     <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='about' smooth={true} duration={1200} >About</Link>
                     <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='explore' smooth={true} duration={1200} >Explore El Fanar</Link>
+                    <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='rooms' smooth={true} duration={1200} >Our Rooms</Link>
                     <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='faq' smooth={true} duration={1200} >FAQ</Link>
                     <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='booking' smooth={true} duration={1200} >Booking</Link>
                     <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='contact' smooth={true} duration={1200} >Contact</Link>

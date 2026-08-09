@@ -1,58 +1,9 @@
 import React from 'react'
 import { FiSearch } from "react-icons/fi";
 import { FiFilter } from "react-icons/fi";
-
+import { bookings } from "../../../../data/Bookings"
+ 
 export default function BookingView() {
-    const bookings = [
-        {
-            id: 1,
-            name: "Eslam",
-            room: "1201",
-            checkIn: "1/9/2026",
-            checkOut: "5/9/2026",
-            status: "Pending"
-        },
-        {
-            id: 2,
-            name: "Kareem",
-            room: "1202",
-            checkIn: "1/9/2026",
-            checkOut: "5/9/2026",
-            status: "Confirmed"
-        },
-        {
-            id: 3,
-            name: "Mohamed",
-            room: "1203",
-            checkIn: "1/9/2026",
-            checkOut: "5/9/2026",
-            status: "Cancelled"
-        },
-        {
-            id: 4,
-            name: "Abdo",
-            room: "1204",
-            checkIn: "1/9/2026",
-            checkOut: "5/9/2026",
-            status: "Confirmed"
-        },
-        {
-            id: 5,
-            name: "Ahmed",
-            room: "1205",
-            checkIn: "1/9/2026",
-            checkOut: "5/9/2026",
-            status: "Cancelled"
-        },
-        {
-            id: 6,
-            name: "Ali",
-            room: "1207",
-            checkIn: "1/9/2026",
-            checkOut: "5/9/2026",
-            status: "Pending"
-        },
-    ]
 return (
     <section className="flex flex-col gap-5 md:gap-6 lg:gap-7 mt-5 md:mt-6 lg:mt-7">
 
@@ -103,6 +54,12 @@ return (
                 >
 
                     <p className="text-gray-600">
+                        Booking Id:
+                        <span className="text-black font-semibold">
+                            {booking.bookingId}
+                        </span>
+                    </p>
+                    <p className="text-gray-600">
                         Guest Name:
                         <span className="text-black font-semibold">
                             {booking.name}
@@ -110,9 +67,27 @@ return (
                     </p>
 
                     <p className="text-gray-600">
-                        Room:
+                        Adul:
+                        <span className="text-black font-semibold">
+                            {booking.adults}
+                        </span>
+                    </p>
+                    <p className="text-gray-600">
+                        Children:
+                        <span className="text-black font-semibold">
+                            {booking.children}
+                        </span>
+                    </p>
+                    <p className="text-gray-600">
+                        Room type:
                         <span className="text-black font-semibold">
                             {booking.room}
+                        </span>
+                    </p>
+                    <p className="text-gray-600">
+                        Meals:
+                        <span className="text-black font-semibold">
+                            {booking.mealPlan}
                         </span>
                     </p>
 

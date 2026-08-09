@@ -1,30 +1,7 @@
 import React from 'react'
+import { bookings } from "../../../../data/DashboardHome"
 
 export default function RecentBookings() {
-
-    const bookings = [
-        {
-            id: 1,
-            guest: "Eslam Mohamed",
-            room: "1201",
-            status: "Confirmed",
-            date: "18/9/2026"
-        },
-        {
-            id: 2,
-            guest: "Ahmed Ali",
-            room: "1202",
-            status: "Pending",
-            date: "20/9/2026"
-        },
-        {
-            id: 3,
-            guest: "Mohamed Hassan",
-            room: "1203",
-            status: "Confirmed",
-            date: "22/9/2026"
-        }
-    ];
 
     return (
         <div className="bg-white rounded-2xl shadow-xl p-5 md:p-6">

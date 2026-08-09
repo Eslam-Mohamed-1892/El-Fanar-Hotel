@@ -63,6 +63,7 @@ export default function Footer() {
                         <Link spy={true} offset={-90} to='hero' smooth={true} duration={1200} className='hover:text-[#D4AF37] transition-colors hover:translate-x-1'>Home</Link>
                         <Link spy={true} offset={-90} to='about' smooth={true} duration={1200} className='hover:text-[#D4AF37] transition-colors hover:translate-x-1'>About</Link>
                         <Link spy={true} offset={-90} to='explore' smooth={true} duration={1200} className='hover:text-[#D4AF37] transition-colors hover:translate-x-1'>Explore El Fanar</Link>
+                        <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='rooms' smooth={true} duration={1200} >Our Rooms</Link>
                         <Link spy={true} offset={-90} to='faq' smooth={true} duration={1200} className='hover:text-[#D4AF37] transition-colors hover:translate-x-1'>FAQ</Link>
                         <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='booking' smooth={true} duration={1200} >Booking</Link>
                         <Link spy={true} offset={-90} to='contact' smooth={true} duration={1200} className='hover:text-[#D4AF37] tranfooter/sition-colors hover:translate-x-1'>Contact</Link>
@@ -91,7 +92,7 @@ export default function Footer() {
                                     <a href={item.link} target="_blank" className='inline-flex justify-center items-center text-4xl h-10 w-10 bg-white text-black rounded-full border hover:bg-[#D4AF37] hover:text-white'><item.icon /></a>
                                 </div>
                             ))
-                        }                    
+                        }
                     </div>
                 </div>
             </div>

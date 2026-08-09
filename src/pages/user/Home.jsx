@@ -7,6 +7,7 @@ import FAQ from '../../components/user/FAQ'
 import Contact from '../../components/user/Contact'
 import Footer from '../../components/user/Footer'
 import Booking from '../../components/user/Booking'
+import Rooms from '../../components/user/Rooms'
 
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
             <Hero />
             <About />
             <Explore />
+            <Rooms />
             <FAQ />
             <Booking />
             <Contact />

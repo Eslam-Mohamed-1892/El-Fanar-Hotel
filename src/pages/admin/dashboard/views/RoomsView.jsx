@@ -1,51 +1,9 @@
 import React from 'react'
 import { FiSearch } from "react-icons/fi";
 import { FiEdit2, FiFilter } from "react-icons/fi";
+import { rooms } from "../../../../data/Rooms";
 
 export default function RoomsView() {
-    const rooms = [
-        {
-            id: 1,
-            roomNum: "1201",
-            roomType: "Family Room",
-            status: "Available",
-            price: "$250",
-
-        },
-        {
-            id: 2,
-            roomNum: "1202",
-            roomType: "Double Room",
-            status: "Busy",
-            price: "$150",
-
-        },
-        {
-            id: 3,
-            roomNum: "1203",
-            roomType: "Double Room",
-            status: "Available",
-            price: "$150",
-
-        },
-        {
-            id: 4,
-            roomNum: "1204",
-            roomType: "triple Room",
-            status: "Available",
-            price: "$200",
-
-        },
-        {
-            id: 5,
-            roomNum: "1205",
-            roomType: "Double Room",
-            status: "Unavailable",
-            price: "----",
-
-        },
-
-    ]
 return (
     <section className="flex flex-col gap-5 md:gap-6 lg:gap-7 mt-5 md:mt-6 lg:mt-7">
 
@@ -102,13 +60,6 @@ return (
                         "
                     >
 
-                        <p className="text-gray-600">
-                            Room Number:
-
-                            <span className="text-black font-semibold">
-                                {room.roomNum}
-                            </span>
-                        </p>
 
 
                         <p className="text-gray-600">
@@ -120,29 +71,6 @@ return (
                         </p>
 
 
-                        <p className="text-gray-600">
-                            Room Status:
-
-                            <span
-                                className={`
-                                    badge
-                                    badge-sm
-                                    md:badge-md
-                                    text-white
-
-                                    ${
-                                        room.status === "Available"
-                                            ? "badge-success"
-                                            : room.status === "Busy"
-                                                ? "badge-warning"
-                                                : "badge-error"
-                                    }
-                                `}
-                            >
-                                {room.status}
-                            </span>
-
-                        </p>
 
 
                         <p className="text-gray-600">

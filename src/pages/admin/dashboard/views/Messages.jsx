@@ -1,47 +1,9 @@
 import React from 'react'
 import { FiSearch } from "react-icons/fi";
 import { FiEdit2, FiFilter } from "react-icons/fi";
+import { messages } from "../../../../data/Messages"
 
 export default function MessagesView() {
-    const messages = [
-        {
-            id: 1,
-            name: "eslam",
-            email: "eslameldakhli189@gmail.com",
-            message: "Hala Madrid",
-            date: "18/9/2002",
-        },
-        {
-            id: 2,
-            name: "eslam",
-            email: "eslameldakhli189@gmail.com",
-            message: "Hala Madrid",
-            date: "18/9/2002",
-        },
-        {
-            id: 3,
-            name: "eslam",
-            email: "eslameldakhli189@gmail.com",
-            message: "Hala Madrid",
-            date: "18/9/2002",
-        },
-        {
-            id: 4,
-            name: "eslam",
-            email: "eslameldakhli189@gmail.com",
-            message: "Hala Madrid",
-            date: "18/9/2002",
-        },
-        {
-            id: 5,
-            name: "eslam",
-            email: "eslameldakhli189@gmail.com",
-            message: "Hala Madrid",
-            date: "18/9/2002",
-        },
-
-
-    ]
 return (
     <section className="flex flex-col gap-5 md:gap-6 lg:gap-7 mt-5 md:mt-6 lg:mt-7">
 

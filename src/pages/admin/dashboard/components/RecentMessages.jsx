@@ -1,27 +1,7 @@
 import React from 'react'
+import { messages } from "../../../../data/DashboardHome"
 
 export default function RecentMessages() {
-
-    const messages = [
-        {
-            id: 1,
-            guest: "Eslam Mohamed",
-            message: "I want to know the breakfast time",
-            date: "18/9/2026",
-        },
-        {
-            id: 2,
-            guest: "Ahmed Ali",
-            message: "Can I change my booking date?",
-            date: "20/9/2026",
-        },
-        {
-            id: 3,
-            guest: "Mohamed Hassan",
-            message: "I need more information about the rooms",
-            date: "22/9/2026",
-        }
-    ];
 
     return (
         <div className="bg-white rounded-2xl shadow-xl p-5 md:p-6">
