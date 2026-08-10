@@ -1,8 +1,7 @@
 import React from 'react'
-import { bookings } from "../../../../data/DashboardHome"
+import { bookings } from "../../../../data/Bookings"
 
 export default function RecentBookings() {
-
     return (
         <div className="bg-white rounded-2xl shadow-xl p-5 md:p-6">
 
@@ -17,27 +16,33 @@ export default function RecentBookings() {
                         <div
                             key={booking.id}
                             className="
-                            border-b last:border-none pb-3
-                            flex flex-col gap-2
+                                border-b
+                                last:border-none
+                                pb-3
+                                flex
+                                flex-col
+                                gap-2
                             "
                         >
 
                             <div className="flex justify-between">
-                                <p className="font-semibold text-[#102A43]">
-                                    Room {booking.room}
+
+                                <p className="font-semibold text-[#102A43]">id:
+                                    {booking.bookingId}
                                 </p>
 
                                 <span className="text-sm text-gray-500">
-                                    {booking.date}
+                                    {booking.checkIn}
                                 </span>
+
                             </div>
 
                             <p className="text-gray-600">
-                                {booking.guest}
+                                {booking.guestName}
                             </p>
 
                             <span
-                                className={`badge badge-sm md:badge-lg text-white 
+                                className={`badge badge-sm md:badge-lg text-white
                                     ${booking.status === "Confirmed"
                                         ? "badge-success"
                                         : booking.status === "Pending"

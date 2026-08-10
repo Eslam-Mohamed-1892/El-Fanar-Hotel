@@ -7,7 +7,7 @@ export default function Rooms() {
         <section
             id='rooms'
             name="rooms"
-            className="bg-neutral-100 flex flex-col gap-7 px-5 py-10 md:px-6 lg:px-7"
+            className="bg-neutral-100 flex flex-col gap-7 py-10 px-6 md:px-8 lg:px-10"
         >
 
             <div className="text-center">
