@@ -1,5 +1,5 @@
 import React from "react";
-import { rooms } from "../../data/rooms";
+import { rooms } from "../../data/Rooms";
 import { Link } from "react-scroll";
 
 export default function Rooms() {
