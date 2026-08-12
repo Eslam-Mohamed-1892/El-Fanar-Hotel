@@ -3,6 +3,11 @@ import king from '../../images/booking/king.jpg'
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
+import {
+  getRoomByType,
+  isAdultCapacityValid
+} from "../../utils/bookingUtils";
+import { rooms } from "../../data/Rooms";;
 
 export default function Booking() {
   const today = new Date().toISOString().split("T")[0];
@@ -69,7 +74,31 @@ export default function Booking() {
     validationSchema: bookingSchema,
 
     onSubmit: (values, { resetForm }) => {
-      toast.success("Booking request sent successfully!");
+      console.log("FORM VALUES:", values);
+      console.log("ROOM TYPE:", values.roomType);
+      console.log("ROOMS:", rooms);
+
+      const selectedRoom = getRoomByType(
+        rooms,
+        values.roomType
+      );
+      console.log("SELECTED ROOM:", selectedRoom);
+      if (!selectedRoom) {
+        toast.error("Please select a room type");
+        return;
+      }
+
+      if (
+        !isAdultCapacityValid(
+          selectedRoom,
+          Number(values.adult)
+        )
+      ) {
+        toast.error(
+          "The number of adults exceeds room capacity"
+        );
+        return;
+      }
 
       const oldBookings =
         JSON.parse(localStorage.getItem("booking")) || [];
@@ -84,6 +113,10 @@ export default function Booking() {
         JSON.stringify(updatedBookings)
       );
 
+      toast.success(
+        "Booking request sent successfully!"
+      );
+
       resetForm();
     }
   });
@@ -96,6 +129,7 @@ export default function Booking() {
         formik.values.age.slice(0, childrenCount)
       );
     }
+
   }, [formik.values.children, formik.values.age]);
   return (
     <section
@@ -236,17 +270,17 @@ export default function Booking() {
               <option value="" disabled>
                 Select your room
               </option>
-              <option value="Single">
-                Single
+              <option value="Single Room">
+                Single Room
               </option>
-              <option value="Double">
-                Double
+              <option value="Double Room">
+                Double Room
               </option>
-              <option value='Triple'>
-                Triple
+              <option value='Triple Room'>
+                Triple Room
               </option>
-              <option value='Family'>
-                Family
+              <option value='Family Room'>
+                Family Room
               </option>
             </select>
             {formik.touched.roomType && formik.errors.roomType && (
