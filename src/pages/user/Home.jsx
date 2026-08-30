@@ -19,7 +19,7 @@ export default function Home() {
             <Explore />
             <Rooms />
             <FAQ />
-            <Booking />
+            {/* <Booking /> */}
             <Contact />
             <Footer />
         </div>

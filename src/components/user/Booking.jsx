@@ -56,6 +56,15 @@ export default function Booking() {
       ), roomType: Yup.string()
         .required("Please select a room"),
 
+    rooms: Yup.array()
+      .of(
+        Yup.object({
+          roomType: Yup.string()
+            .required("Please select a room"),
+        })
+      )
+      .min(1, "Please select at least one room"),
+
     request: Yup.string()
       .max(300, "Maximum 300 characters"),
   });
@@ -67,22 +76,30 @@ export default function Booking() {
       adult: "",
       children: "",
       age: [],
-      roomType: "",
+      rooms: [
+        {
+          roomType: "",
+        }
+      ],
       request: "",
     },
 
     validationSchema: bookingSchema,
 
     onSubmit: (values, { resetForm }) => {
-      console.log("FORM VALUES:", values);
-      console.log("ROOM TYPE:", values.roomType);
-      console.log("ROOMS:", rooms);
+
+
+      console.log("🔥 FORM SUBMIT EVENT");
+      console.log("🔥 BOOKING DATA:", values);
+      console.log("🏨 SELECTED ROOM:", selectedRoom);
+      console.log("🔥 AFTER HANDLE SUBMIT");
 
       const selectedRoom = getRoomByType(
         rooms,
-        values.roomType
+        values.rooms[0].roomType
       );
-      console.log("SELECTED ROOM:", selectedRoom);
+
+
       if (!selectedRoom) {
         toast.error("Please select a room type");
         return;
@@ -99,6 +116,9 @@ export default function Booking() {
         );
         return;
       }
+
+
+
 
       const oldBookings =
         JSON.parse(localStorage.getItem("booking")) || [];
@@ -258,11 +278,12 @@ export default function Booking() {
             <label htmlFor="roomType" className='font-semibold text-black leading-relaxed text-lg'>Room Type</label>
             <select
               id='roomType'
-              name='roomType'
+              name="rooms[0].roomType"
+              value={formik.values.rooms[0].roomType}
               onBlur={formik.handleBlur}
-              value={formik.values.roomType}
               onChange={formik.handleChange}
-              className={`select w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100 ${formik.touched.roomType && formik.errors.roomType
+              className={`select w-full focus:shadow-2xl transition-all text-[#1F2937] bg-neutral-100 ${formik.touched.rooms?.[0]?.roomType &&
+                formik.errors.rooms?.[0]?.roomType
                 ? "select-error"
                 : "select-info"
                 }`}
@@ -283,11 +304,12 @@ export default function Booking() {
                 Family Room
               </option>
             </select>
-            {formik.touched.roomType && formik.errors.roomType && (
-              <p className="text-red-500 text-sm">
-                {formik.errors.roomType}
-              </p>
-            )}
+            {formik.touched.rooms?.[0]?.roomType &&
+              formik.errors.rooms?.[0]?.roomType && (
+                <p className="text-red-500 text-sm">
+                  {formik.errors.rooms[0].roomType}
+                </p>
+              )}
           </div>
           <div className='flex flex-col gap-2'>
             <label htmlFor="request" className='font-semibold text-black leading-relaxed text-lg'>Special Request</label>

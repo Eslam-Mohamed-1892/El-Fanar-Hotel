@@ -114,7 +114,7 @@ export default function Rooms() {
 
 
                 <Link
-                    to='booking'
+                    to='contact'
                     smooth={true}
                     duration={1200}
                     spy={true}
@@ -130,7 +130,7 @@ export default function Rooms() {
                     mt-auto
                 "
                 >
-                    Book Now ↓
+                    Contact Us ↓
                 </Link>
 
             </div>

@@ -22,12 +22,12 @@ export default function MainHeader() {
                     <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='footer' smooth={true} duration={1200} >Footer</Link>
                 </nav>
                 <HiMenu
-                    className='w-7 h-7 cursor-pointer md:hidden text-white'
+                    className='w-7 h-7 md:hidden text-white'
                     onClick={() => setOpen(!open)}
                 />
             </div>
             {open && (
-                <div className="cursor-pointer inter-font flex md:hidden flex-col items-center gap-4 py-6 text-white bg-[#0e0e0ea2]">
+                <div className="inter-font flex md:hidden flex-col items-center gap-4 py-6 text-white bg-[#0e0e0ea2]">
                     <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='hero' smooth={true} duration={1200} >Home</Link>
                     <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='about' smooth={true} duration={1200} >About</Link>
                     <Link offset={-90} spy={true} activeClass="text-[#D4AF37]" to='explore' smooth={true} duration={1200} >Explore El Fanar</Link>
