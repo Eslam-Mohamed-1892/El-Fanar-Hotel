@@ -339,7 +339,7 @@ export default function Contact() {
                 </h1>
 
                 <p className='font-semibold text-[#1F2937] leading-relaxed mb-6 my-4'>
-                    Have a question or need assistance? We're here to help.
+                    Have a question or need assistance?<br />We're here to help.
                 </p>
             </div>
 
