@@ -339,7 +339,7 @@ export default function Contact() {
                 </h1>
 
                 <p className='font-semibold text-[#1F2937] leading-relaxed mb-6 my-4'>
-                    We'd love to hear from you.
+                    Have a question or need assistance? We're here to help.
                 </p>
             </div>
 
@@ -350,7 +350,7 @@ export default function Contact() {
                     {
                         data.map((data) => (
                             <div
-                                className='flex gap-4 items-center lg:bg-white lg:rounded-xl lg:shadow-xl lg:p-5'
+                                className='flex gap-4 items-center lg:bg-white lg:rounded-xl lg:shadow-xl lg:p-5 break-normal whitespace-normal'
                                 key={data.id}
                             >
                                 <div className='text-[#D4AF37] text-xl shrink-0'>
@@ -365,19 +365,19 @@ export default function Contact() {
                                     data.id === 2 ? (
                                         <a
                                             href='tel:01050838177'
-                                            className='font-semibold text-[#1F2937] break-all'
+                                            className='font-semibold text-[#1F2937] break-normal whitespace-normal'
                                         >
                                             {data.p2}
                                         </a>
                                     ) : data.id === 3 ? (
                                         <a
                                             href='mailto:eslameldakhli189@gmail.com'
-                                            className='font-semibold text-[#1F2937] break-all'
+                                            className='font-semibold text-[#1F2937] break-normal whitespace-normal'
                                         >
                                             {data.p2}
                                         </a>
                                     ) : (
-                                        <p className='font-semibold text-[#1F2937] break-all'>
+                                        <p className='font-semibold text-[#1F2937] break-normal whitespace-normal'>
                                             {data.p2}
                                         </p>
                                     )
@@ -406,7 +406,7 @@ export default function Contact() {
                     <div className='flex items-center gap-4'>
                         <FaUsers className='text-[#D4AF37] text-xl shrink-0' />
 
-                        <p className='font-semibold text-[#1F2937] break-all'>
+                        <p className='font-semibold text-[#1F2937] break-normal whitespace-normal'>
                             Our team is always ready to help you. Feel free to contact us anytime.
                         </p>
                     </div>
