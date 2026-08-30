@@ -345,7 +345,7 @@ export default function Contact() {
 
             <div className='flex flex-col lg:flex-row justify-between gap-10 text-black font-bold'>
 
-                <div className='flex flex-col gap-5 text-black font-bold bg-white rounded-2xl shadow-2xl p-8 lg:bg-transparent lg:shadow-none lg:p-0 w-full lg:w-[38%]'>
+                <div className='flex flex-col gap-5 text-black font-bold bg-white rounded-2xl shadow-2xl p-5 lg:bg-transparent lg:shadow-none lg:p-0 w-full lg:w-[38%]'>
 
                     {
                         data.map((data) => (
@@ -372,7 +372,7 @@ export default function Contact() {
                                     ) : data.id === 3 ? (
                                         <a
                                             href='mailto:eslameldakhli189@gmail.com'
-                                            className='font-semibold text-[#1F2937] break-normal whitespace-normal'
+                                            className='font-semibold text-[#1F2937] break-all'
                                         >
                                             {data.p2}
                                         </a>
