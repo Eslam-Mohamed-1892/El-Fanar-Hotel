@@ -8,76 +8,103 @@ import aqua from '../../images/explore/aqua.jpg'
 import poolBar from '../../images/explore/bar.jpg'
 import { FaXmark } from "react-icons/fa6"
 
-export default function Explore() {
+export default function Explore({ language, theme }) {
 
     const [selectedFacility, setSelectedFacility] = useState(null)
+
+    const isArabic = language === 'ar'
+    const isDark = theme === 'dark'
 
     const facilities = [
         {
             id: 1,
             img: Room,
-            title: "Comfortable Rooms",
-            description: "Choose from Family, Double, Twin, or Triple rooms with the option of an extra bed upon request.",
-            details: "Our comfortable rooms are designed to provide a relaxing stay for couples, families, and groups. Choose from Family, Double, Twin, or Triple rooms, with an extra bed available upon request.",
+            title: isArabic ? "غرف مريحة" : "Comfortable Rooms",
+            description: isArabic
+                ? "اختر من بين الغرف العائلية أو المزدوجة أو التوأم أو الثلاثية، مع إمكانية إضافة سرير إضافي عند الطلب."
+                : "Choose from Family, Double, Twin, or Triple rooms with the option of an extra bed upon request.",
+            details: isArabic
+                ? "صُممت غرفنا المريحة لتوفر إقامة هادئة للأزواج والعائلات والمجموعات. اختر من بين الغرف العائلية أو المزدوجة أو التوأم أو الثلاثية، مع إمكانية توفير سرير إضافي عند الطلب."
+                : "Our comfortable rooms are designed to provide a relaxing stay for couples, families, and groups. Choose from Family, Double, Twin, or Triple rooms, with an extra bed available upon request.",
             prev: 'slide6',
             next: 'slide2',
-            button: "Learn More",
-            alt: "Comfortable hotel room"
+            button: isArabic ? "اعرف المزيد" : "Learn More",
+            alt: isArabic ? "غرفة فندقية مريحة" : "Comfortable hotel room"
         },
         {
             id: 2,
             img: mainRestuarant,
-            title: "Main Restaurant",
-            description: "Breakfast: from 8:00 to 10:00 AM, Dinner: from 7:00 to 9:00 PM.",
-            details: "Enjoy a comfortable dining experience at our main restaurant. Breakfast is served from 8:00 to 10:00 AM, while dinner is served from 7:00 to 9:00 PM.",
+            title: isArabic ? "المطعم الرئيسي" : "Main Restaurant",
+            description: isArabic
+                ? "الإفطار من 8:00 إلى 10:00 صباحًا، والعشاء من 7:00 إلى 9:00 مساءً."
+                : "Breakfast: from 8:00 to 10:00 AM, Dinner: from 7:00 to 9:00 PM.",
+            details: isArabic
+                ? "استمتع بتجربة تناول طعام مريحة في مطعمنا الرئيسي. يُقدم الإفطار من الساعة 8:00 إلى 10:00 صباحًا، بينما يُقدم العشاء من الساعة 7:00 إلى 9:00 مساءً."
+                : "Enjoy a comfortable dining experience at our main restaurant. Breakfast is served from 8:00 to 10:00 AM, while dinner is served from 7:00 to 9:00 PM.",
             prev: 'slide1',
             next: 'slide3',
-            button: "Learn More",
-            alt: "Main restaurant at El Fanar Hotel"
+            button: isArabic ? "اعرف المزيد" : "Learn More",
+            alt: isArabic ? "المطعم الرئيسي في فندق الفنار" : "Main restaurant at El Fanar Hotel"
         },
         {
             id: 3,
             img: jarelbarh,
-            title: "Lebanese Beach Restaurant",
-            description: "Enjoy authentic Lebanese cuisine with a beautiful beachfront view. Open daily from 11:00 AM to 11:00 PM.",
-            details: "Enjoy authentic Lebanese cuisine while taking in the beautiful beachfront view. The restaurant is open daily from 11:00 AM to 11:00 PM.",
+            title: isArabic ? "مطعم الشاطئ اللبناني" : "Lebanese Beach Restaurant",
+            description: isArabic
+                ? "استمتع بالمأكولات اللبنانية الأصيلة مع إطلالة رائعة على الشاطئ. مفتوح يوميًا من 11:00 صباحًا حتى 11:00 مساءً."
+                : "Enjoy authentic Lebanese cuisine with a beautiful beachfront view. Open daily from 11:00 AM to 11:00 PM.",
+            details: isArabic
+                ? "استمتع بالمأكولات اللبنانية الأصيلة بينما تستمتع بالإطلالة الجميلة على الشاطئ. المطعم مفتوح يوميًا من الساعة 11:00 صباحًا حتى 11:00 مساءً."
+                : "Enjoy authentic Lebanese cuisine while taking in the beautiful beachfront view. The restaurant is open daily from 11:00 AM to 11:00 PM.",
             prev: 'slide2',
             next: 'slide4',
-            button: "Learn More",
-            alt: "Lebanese beachfront restaurant"
+            button: isArabic ? "اعرف المزيد" : "Learn More",
+            alt: isArabic ? "مطعم لبناني على الشاطئ" : "Lebanese beachfront restaurant"
         },
         {
             id: 4,
             img: pool,
-            title: "Pools & Beach",
-            description: "Relax by the swimming pools or enjoy direct beach access from 9:00 AM to 6:00 PM.",
-            details: "Spend your day relaxing by our swimming pools or enjoying direct access to the beach. Pool and beach facilities are available from 9:00 AM to 6:00 PM.",
+            title: isArabic ? "حمامات السباحة والشاطئ" : "Pools & Beach",
+            description: isArabic
+                ? "استرخِ بجوار حمامات السباحة أو استمتع بالدخول المباشر إلى الشاطئ من 9:00 صباحًا حتى 6:00 مساءً."
+                : "Relax by the swimming pools or enjoy direct beach access from 9:00 AM to 6:00 PM.",
+            details: isArabic
+                ? "اقضِ يومك مسترخيًا بجوار حمامات السباحة أو استمتع بالدخول المباشر إلى الشاطئ. تتوفر مرافق حمامات السباحة والشاطئ من الساعة 9:00 صباحًا حتى 6:00 مساءً."
+                : "Spend your day relaxing by our swimming pools or enjoying direct access to the beach. Pool and beach facilities are available from 9:00 AM to 6:00 PM.",
             prev: 'slide3',
             next: 'slide5',
-            button: "Learn More",
-            alt: "Swimming pools and private beach"
+            button: isArabic ? "اعرف المزيد" : "Learn More",
+            alt: isArabic ? "حمامات السباحة والشاطئ الخاص" : "Swimming pools and private beach"
         },
         {
             id: 5,
             img: aqua,
-            title: "Aqua Park",
-            description: "Open 6 hours daily with scheduled breaks for maintenance.",
-            details: "Have fun with family and friends at our Aqua Park. The Aqua Park is open for 6 hours every day, with scheduled breaks for maintenance.",
+            title: isArabic ? "أكوا بارك" : "Aqua Park",
+            description: isArabic
+                ? "مفتوح لمدة 6 ساعات يوميًا مع فترات راحة مجدولة للصيانة."
+                : "Open 6 hours daily with scheduled breaks for maintenance.",
+            details: isArabic
+                ? "استمتع بوقت ممتع مع العائلة والأصدقاء في أكوا بارك. يفتح أكوا بارك لمدة 6 ساعات يوميًا، مع فترات راحة مجدولة للصيانة."
+                : "Have fun with family and friends at our Aqua Park. The Aqua Park is open for 6 hours every day, with scheduled breaks for maintenance.",
             prev: 'slide4',
             next: 'slide6',
-            button: "Learn More",
-            alt: "Family aqua park"
+            button: isArabic ? "اعرف المزيد" : "Learn More",
+            alt: isArabic ? "أكوا بارك للعائلات" : "Family aqua park"
         },
         {
             id: 6,
             img: poolBar,
-            title: "Pool Bar",
-            description: "Cool drinks, fresh cocktails, and relaxing moments await you at our Pool Bar beside the main swimming pool.",
-            details: "Relax beside the main swimming pool and enjoy a selection of refreshing drinks and cocktails at our Pool Bar.",
+            title: isArabic ? "بار حمام السباحة" : "Pool Bar",
+            description: isArabic
+                ? "مشروبات منعشة وكوكتيلات طازجة ولحظات من الاسترخاء في انتظارك بجوار حمام السباحة الرئيسي."
+                : "Cool drinks, fresh cocktails, and relaxing moments await you at our Pool Bar beside the main swimming pool.",
+            details: isArabic
+                ? "استرخِ بجوار حمام السباحة الرئيسي واستمتع بمجموعة متنوعة من المشروبات المنعشة والكوكتيلات في بار حمام السباحة."
+                : "Relax beside the main swimming pool and enjoy a selection of refreshing drinks and cocktails at our Pool Bar.",
             prev: 'slide5',
             next: 'slide1',
-            button: "Learn More",
-            alt: "Pool bar beside the main swimming pool"
+            button: isArabic ? "اعرف المزيد" : "Learn More",
+            alt: isArabic ? "بار بجوار حمام السباحة الرئيسي" : "Pool bar beside the main swimming pool"
         },
     ]
 
@@ -89,22 +116,69 @@ export default function Explore() {
         setSelectedFacility(null)
     }
 
+    const sectionBg = isDark
+        ? 'bg-[#081A2B]'
+        : 'bg-neutral-100'
+
+    const headingColor = isDark
+        ? 'text-[#D4AF37]'
+        : 'text-[#102A43]'
+
+    const paragraphColor = isDark
+        ? 'text-gray-200'
+        : 'text-[#1F2937]'
+
+    const modalBg = isDark
+        ? 'bg-[#102A43]'
+        : 'bg-white'
+
+    const modalText = isDark
+        ? 'text-white'
+        : 'text-[#1F2937]'
+
     return (
         <>
             <section
-                id='explore'
+                id="explore"
                 name="explore"
-                className='w-full bg-neutral-100 py-10 px-6 md:px-8 lg:px-10'
+                className={`
+                    w-full
+                    ${sectionBg}
+                    py-10
+                    px-6 md:px-8 lg:px-10
+                    transition-colors duration-300
+                `}
             >
 
-                <div className='text-center'>
+                <div className="text-center">
 
-                    <h1 className='text-[#000000] font-bold text-lg md:text-2xl lg:text-3xl font playFair-font'>
-                        Explore Our Resort
+                    <h1
+                        className={`
+                            ${headingColor}
+                            font-bold
+                            text-lg md:text-2xl lg:text-3xl
+                            ${isArabic ? 'aref-font' : 'inter-font'}
+                        `}
+                    >
+                        {isArabic ? "اكتشف منتجعنا" : "Explore Our Resort"}
                     </h1>
 
-                    <p className='font-semibold text-[#1F2937] leading-relaxed mb-6 inter-font my-4'>
-                        Discover everything El Fanar Hotel has to offer, from luxurious rooms to relaxing pools and unforgettable dining experiences.
+                    <p
+                        className={`
+                            ${paragraphColor}
+                            font-semibold
+                            leading-relaxed
+                            mb-6 my-4
+                            ${isArabic
+                                ? 'aref-font text-lg md:text-lg lg:text-xl'
+                                : 'inter-font text-base'
+                            }
+                        `}
+                    >
+                        {isArabic
+                            ? "اكتشف كل ما يقدمه فندق الفنار، من الغرف الفاخرة إلى حمامات السباحة المريحة وتجارب تناول الطعام التي لا تُنسى."
+                            : "Discover everything El Fanar Hotel has to offer, from luxurious rooms to relaxing pools and unforgettable dining experiences."
+                        }
                     </p>
 
                 </div>
@@ -112,136 +186,239 @@ export default function Explore() {
 
                 <div className="carousel w-full rounded-xl">
 
-                    {
-                        facilities.map((facility) => (
+                    {facilities.map((facility) => (
+
+                        <div
+                            id={`slide${facility.id}`}
+                            key={facility.id}
+                            className="carousel-item relative w-full bg-black"
+                        >
+
+                            <img
+                                src={facility.img}
+                                alt={facility.alt}
+                                className="w-full h-140 md:h-160 lg:h-140 object-cover"
+                            />
+
+                            <div className="absolute inset-0 bg-black/40"></div>
+
 
                             <div
-                                id={`slide${facility.id}`}
-                                key={facility.id}
-                                className="carousel-item relative w-full bg-black"
+                                className={`
+                                    absolute
+                                    bottom-10
+                                    ${isArabic
+                                        ? 'right-8 md:right-8'
+                                        : 'left-8 md:left-8'
+                                    }
+                                    flex flex-col
+                                    gap-5
+                                    text-white
+                                    px-3
+                                    max-w-2xl
+                                `}
                             >
 
-                                <img
-                                    src={facility.img}
-                                    alt={facility.alt}
-                                    className="w-full h-140 md:h-160 lg:h-140 object-cover"
-                                />
+                                <h1
+                                    className={`
+                                        ${isArabic
+                                            ? 'aref-font text-3xl md:text-4xl lg:text-5xl'
+                                            : 'inter-font text-3xl md:text-5xl'
+                                        }
+                                        font-bold
+                                    `}
+                                >
+                                    {facility.title}
+                                </h1>
 
-                                <div className='absolute inset-0 bg-black/40'></div>
-
-
-                                <div className='absolute bottom-10 md:left-8 flex flex-col gap-5 text-white px-3'>
-
-                                    <h1 className='text-3xl md:text-5xl font-bold playFair-font'>
-                                        {facility.title}
-                                    </h1>
-
-                                    <p className='max-w-xl leading-relaxed text-gray-200 inter-font font-bold'>
-                                        {facility.description}
-                                    </p>
-
-
-                                    <button
-                                        type='button'
-                                        onClick={() => openModal(facility)}
-                                        className='text-white font-bold btn btn-info'
-                                    >
-                                        {facility.button}
-                                    </button>
-
-                                </div>
+                                <p
+                                    className={`
+                                        max-w-xl
+                                        leading-relaxed
+                                        text-gray-200
+                                        font-bold
+                                        ${isArabic
+                                            ? 'aref-font text-lg md:text-xl'
+                                            : 'inter-font text-base'
+                                        }
+                                    `}
+                                >
+                                    {facility.description}
+                                </p>
 
 
-                                <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-
-                                    <a
-                                        href={`#${facility.prev}`}
-                                        className="btn btn-circle bg-black/5 text-white"
-                                    >
-                                        ❮
-                                    </a>
-
-                                    <a
-                                        href={`#${facility.next}`}
-                                        className="btn btn-circle bg-black/5 text-white"
-                                    >
-                                        ❯
-                                    </a>
-
-                                </div>
+                                <button
+                                    type="button"
+                                    onClick={() => openModal(facility)}
+                                    className={`
+                                        btn
+                                        btn-outline
+                                        border-[#D4AF37]
+                                        text-white
+                                        bg-transparent
+                                        hover:bg-[#D4AF37]
+                                        hover:text-[#102A43]
+                                        hover:border-[#D4AF37]
+                                        font-semibold
+                                        w-fit
+                                        ${isArabic ? 'aref-font text-lg' : 'inter-font'}
+                                    `}
+                                >
+                                    {facility.button}
+                                </button>
 
                             </div>
 
-                        ))
-                    }
+
+                            <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+
+                                <a
+                                    href={`#${facility.prev}`}
+                                    className="
+                                        btn btn-circle
+                                        bg-black/20
+                                        text-white
+                                        border-[#D4AF37]/40
+                                        hover:bg-[#D4AF37]
+                                        hover:text-[#102A43]
+                                        hover:border-[#D4AF37]
+                                    "
+                                >
+                                    ❮
+                                </a>
+
+                                <a
+                                    href={`#${facility.next}`}
+                                    className="
+                                        btn btn-circle
+                                        bg-black/20
+                                        text-white
+                                        border-[#D4AF37]/40
+                                        hover:bg-[#D4AF37]
+                                        hover:text-[#102A43]
+                                        hover:border-[#D4AF37]
+                                    "
+                                >
+                                    ❯
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    ))}
 
                 </div>
 
             </section>
 
 
-            {
-                selectedFacility && (
+            {selectedFacility && (
+
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-6"
+                    onClick={closeModal}
+                >
 
                     <div
-                        className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-6'
-                        onClick={closeModal}
+                        className={`
+                            relative
+                            w-full max-w-2xl
+                            ${modalBg}
+                            rounded-2xl
+                            shadow-2xl
+                            overflow-hidden
+                        `}
+                        onClick={(e) => e.stopPropagation()}
                     >
 
-                        <div
-                            className='relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden'
-                            onClick={(e) => e.stopPropagation()}
-                        >
+                        <div className="relative h-52 md:h-64">
 
-                            <div className='relative h-52 md:h-64'>
+                            <img
+                                src={selectedFacility.img}
+                                alt={selectedFacility.alt}
+                                className="w-full h-full object-cover"
+                            />
 
-                                <img
-                                    src={selectedFacility.img}
-                                    alt={selectedFacility.alt}
-                                    className='w-full h-full object-cover'
-                                />
+                            <div className="absolute inset-0 bg-black/30"></div>
 
-                                <div className='absolute inset-0 bg-black/30'></div>
+                            <button
+                                type="button"
+                                onClick={closeModal}
+                                aria-label={isArabic ? "إغلاق" : "Close"}
+                                className="
+                                    absolute top-4 right-4
+                                    btn btn-circle
+                                    bg-black/50
+                                    text-white
+                                    border-none
+                                    hover:bg-[#D4AF37]
+                                    hover:text-[#102A43]
+                                "
+                            >
+                                <FaXmark />
+                            </button>
 
-                                <button
-                                    type='button'
-                                    onClick={closeModal}
-                                    aria-label='Close'
-                                    className='absolute top-4 right-4 btn btn-circle bg-black/50 text-white border-none'
-                                >
-                                    <FaXmark />
-                                </button>
-
-                            </div>
-
-
-                            <div className='p-6 md:p-8'>
-
-                                <h2 className='text-black font-bold text-2xl md:text-3xl playFair-font mb-4'>
-                                    {selectedFacility.title}
-                                </h2>
-
-                                <p className='text-[#1F2937] font-semibold leading-relaxed inter-font'>
-                                    {selectedFacility.details}
-                                </p>
+                        </div>
 
 
-                                <button
-                                    type='button'
-                                    onClick={closeModal}
-                                    className='btn btn-info text-white font-semibold mt-6'
-                                >
-                                    Close
-                                </button>
+                        <div className="p-6 md:p-8">
 
-                            </div>
+                            <h2
+                                className={`
+                                    ${headingColor}
+                                    font-bold
+                                    text-2xl md:text-3xl
+                                    ${isArabic ? 'aref-font' : 'playFair-font'}
+                                    mb-4
+                                `}
+                            >
+                                {selectedFacility.title}
+                            </h2>
+
+                            <p
+                                className={`
+                                    ${modalText}
+                                    font-semibold
+                                    leading-relaxed
+                                    ${isArabic
+                                        ? 'aref-font text-lg md:text-xl'
+                                        : 'inter-font text-base'
+                                    }
+                                `}
+                            >
+                                {selectedFacility.details}
+                            </p>
+
+
+                            <button
+                                type="button"
+                                onClick={closeModal}
+                                className={`
+                                    btn
+                                    btn-outline
+                                    border-[#D4AF37]
+                                    text-[#102A43]
+                                    bg-transparent
+                                    hover:bg-[#D4AF37]
+                                    hover:text-[#102A43]
+                                    hover:border-[#D4AF37]
+                                    font-semibold
+                                    mt-6
+                                    ${isArabic ? 'aref-font text-lg' : 'inter-font'}
+                                `}
+                            >
+                                {isArabic ? "إغلاق" : "Close"}
+                            </button>
 
                         </div>
 
                     </div>
 
-                )
-            }
+                </div>
+
+            )}
+
         </>
     )
 }

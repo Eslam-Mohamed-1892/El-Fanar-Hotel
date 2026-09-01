@@ -298,31 +298,34 @@ import {
     FaUsers
 } from 'react-icons/fa6'
 
-export default function Contact() {
+export default function Contact({ language, theme }) {
+
+    const isArabic = language === "ar"
+    const isDark = theme === "dark"
 
     const data = [
         {
             id: 1,
             icon: <FaLocationDot />,
-            p1: "Address: ",
+            p1: isArabic ? "العنوان:" : "Address:",
             p2: "Ain Sokhna, Egypt"
         },
         {
             id: 2,
             icon: <FaPhone />,
-            p1: "Phone: ",
+            p1: isArabic ? "الهاتف:" : "Phone:",
             p2: "01050838177"
         },
         {
             id: 3,
             icon: <FaEnvelope />,
-            p1: "Email: ",
+            p1: isArabic ? "البريد الإلكتروني:" : "Email:",
             p2: "eslameldakhli189@gmail.com"
         },
         {
             id: 4,
             icon: <FaClock />,
-            p1: "Reception: ",
+            p1: isArabic ? "الاستقبال:" : "Reception:",
             p2: "24/7"
         },
     ]
@@ -331,35 +334,109 @@ export default function Contact() {
         <section
             id='contact'
             name="contact"
-            className='w-full bg-neutral-100 pt-10 pb-20 px-6 md:px-8 lg:px-10 inter-font'
+            className={`
+                w-full
+                pt-10
+                pb-20
+                px-6 md:px-8 lg:px-10
+                ${isDark ? "bg-[#081A2B]" : "bg-neutral-100"}
+                ${isArabic ? "aref-font" : "inter-font"}
+            `}
         >
+
+            {/* Heading */}
+
             <div className='text-center mb-8'>
-                <h1 className='text-black font-bold text-lg md:text-2xl lg:text-3xl font playFair-font'>
-                    Contact Us
+
+                <h1
+                    className={`
+                        font-bold
+                        text-lg md:text-2xl lg:text-3xl
+                        ${isDark ? "text-[#D4AF37]" : "text-[#102A43]"}
+                    `}
+                >
+                    {isArabic ? "تواصل معنا" : "Contact Us"}
                 </h1>
 
-                <p className='font-semibold text-[#1F2937] leading-relaxed mb-6 my-4'>
-                    Have a question or need assistance?
-                    <br />
-                    We're here to help.
+                <p
+                    className={`
+                        font-semibold
+                        text-base md:text-lg
+                        leading-relaxed
+                        mb-6
+                        my-4
+                        ${isDark ? "text-gray-300" : "text-[#1F2937]"}
+                    `}
+                >
+                    {isArabic ? (
+                        <>
+                            هل لديك سؤال أو تحتاج إلى مساعدة؟
+                            <br />
+                            نحن هنا لمساعدتك.
+                        </>
+                    ) : (
+                        <>
+                            Have a question or need assistance?
+                            <br />
+                            We're here to help.
+                        </>
+                    )}
                 </p>
+
             </div>
 
-            <div className='flex flex-col lg:flex-row justify-between gap-10 text-black font-bold'>
 
-                <div className='flex flex-col gap-5 text-black font-bold bg-white rounded-2xl shadow-2xl p-5 lg:bg-transparent lg:shadow-none lg:p-0 w-full lg:w-[38%]'>
+            <div className={`
+                flex flex-col lg:flex-row
+                justify-between
+                gap-10
+                font-bold
+                ${isDark ? "text-white" : "text-black"}
+            `}>
+
+                {/* Contact Information */}
+
+                <div
+                    className={`
+                        flex flex-col gap-5
+                        font-bold
+                        rounded-2xl
+                        p-5
+                        lg:bg-transparent
+                        lg:shadow-none
+                        lg:p-0
+                        w-full lg:w-[38%]
+                        ${
+                            isDark
+                                ? "bg-[#102A43]"
+                                : "bg-white shadow-2xl"
+                        }
+                    `}
+                >
 
                     {
                         data.map((data) => (
                             <div
-                                className='flex gap-4 items-center lg:bg-white lg:rounded-xl lg:shadow-xl lg:p-5 break-normal whitespace-normal'
+                                className={`
+                                    flex gap-4 items-center
+                                    break-normal
+                                    whitespace-normal
+                                    lg:rounded-xl
+                                    lg:p-5
+                                    ${
+                                        isDark
+                                            ? "lg:bg-[#102A43]"
+                                            : "lg:bg-white lg:shadow-xl"
+                                    }
+                                `}
                                 key={data.id}
                             >
+
                                 <div className='text-[#D4AF37] text-xl shrink-0'>
                                     {data.icon}
                                 </div>
 
-                                <p className='text-[20px] pt-4 pb-4'>
+                                <p className='text-lg md:text-xl pt-4 pb-4 shrink-0'>
                                     {data.p1}
                                 </p>
 
@@ -367,71 +444,189 @@ export default function Contact() {
                                     data.id === 2 ? (
                                         <a
                                             href='tel:01050838177'
-                                            className='font-semibold text-[#1F2937] break-normal whitespace-normal'
+                                            className={`
+                                                font-semibold
+                                                break-normal
+                                                whitespace-normal
+                                                ${
+                                                    isDark
+                                                        ? "text-gray-200"
+                                                        : "text-[#1F2937]"
+                                                }
+                                            `}
                                         >
                                             {data.p2}
                                         </a>
                                     ) : data.id === 3 ? (
                                         <a
                                             href='mailto:eslameldakhli189@gmail.com'
-                                            className='font-semibold text-[#1F2937] break-all'
+                                            className={`
+                                                font-semibold
+                                                break-all
+                                                ${
+                                                    isDark
+                                                        ? "text-gray-200"
+                                                        : "text-[#1F2937]"
+                                                }
+                                            `}
                                         >
                                             {data.p2}
                                         </a>
                                     ) : (
-                                        <p className='font-semibold text-[#1F2937] break-normal whitespace-normal'>
+                                        <p
+                                            className={`
+                                                font-semibold
+                                                break-normal
+                                                whitespace-normal
+                                                ${
+                                                    isDark
+                                                        ? "text-gray-200"
+                                                        : "text-[#1F2937]"
+                                                }
+                                            `}
+                                        >
                                             {data.p2}
                                         </p>
                                     )
                                 }
+
                             </div>
                         ))
                     }
+
+
+                    {/* WhatsApp */}
 
                     <a
                         href='https://wa.me/201050838177'
                         target='_blank'
                         rel='noreferrer'
-                        className='flex gap-4 items-center lg:bg-white lg:rounded-xl lg:shadow-xl lg:p-5'
+                        className={`
+                            flex gap-4 items-center
+                            lg:rounded-xl
+                            lg:p-5
+                            ${
+                                isDark
+                                    ? "lg:bg-[#102A43]"
+                                    : "lg:bg-white lg:shadow-xl"
+                            }
+                        `}
                     >
+
                         <FaWhatsapp className='text-[#D4AF37] text-xl shrink-0' />
 
-                        <p className='text-[20px] pt-4 pb-4'>
-                            WhatsApp:
+                        <p className='text-lg md:text-xl pt-4 pb-4 shrink-0'>
+                            {isArabic ? "واتساب:" : "WhatsApp:"}
                         </p>
 
-                        <p className='font-semibold text-[#1F2937] break-all'>
+                        <p
+                            className={`
+                                font-semibold
+                                break-all
+                                ${
+                                    isDark
+                                        ? "text-gray-200"
+                                        : "text-[#1F2937]"
+                                }
+                            `}
+                        >
                             01050838177
                         </p>
+
                     </a>
 
+
+                    {/* Team Message */}
+
                     <div className='flex items-center gap-4'>
+
                         <FaUsers className='text-[#D4AF37] text-xl shrink-0' />
 
-                        <p className='font-semibold text-[#1F2937] break-normal whitespace-normal'>
-                            Our team is always ready to help you. Feel free to contact us anytime.
+                        <p
+                            className={`
+                                font-semibold
+                                text-base md:text-lg
+                                leading-relaxed
+                                break-normal
+                                whitespace-normal
+                                ${
+                                    isDark
+                                        ? "text-gray-300"
+                                        : "text-[#1F2937]"
+                                }
+                            `}
+                        >
+                            {
+                                isArabic
+                                    ? "فريقنا دائمًا على استعداد لمساعدتك. لا تتردد في التواصل معنا في أي وقت."
+                                    : "Our team is always ready to help you. Feel free to contact us anytime."
+                            }
                         </p>
+
                     </div>
 
                 </div>
 
-                <div className='w-full lg:w-[58%] bg-white rounded-2xl shadow-2xl p-8'>
+
+                {/* Location */}
+
+                <div
+                    className={`
+                        w-full lg:w-[58%]
+                        rounded-2xl
+                        shadow-2xl
+                        p-8
+                        ${
+                            isDark
+                                ? "bg-[#102A43]"
+                                : "bg-white"
+                        }
+                    `}
+                >
 
                     <div className='flex items-center gap-4 mb-6'>
+
                         <FaLocationDot className='text-[#D4AF37] text-2xl shrink-0' />
 
                         <div>
-                            <h2 className='text-black font-bold text-xl'>
-                                Our Location
+
+                            <h2
+                                className={`
+                                    font-bold
+                                    text-xl
+                                    ${
+                                        isDark
+                                            ? "text-white"
+                                            : "text-black"
+                                    }
+                                `}
+                            >
+                                {isArabic ? "موقعنا" : "Our Location"}
                             </h2>
 
-                            <p className='font-semibold text-[#1F2937]'>
-                                Ain Sokhna, Egypt
+                            <p
+                                className={`
+                                    font-semibold
+                                    ${
+                                        isDark
+                                            ? "text-gray-300"
+                                            : "text-[#1F2937]"
+                                    }
+                                `}
+                            >
+                                {isArabic
+                                    ? "العين السخنة، مصر"
+                                    : "Ain Sokhna, Egypt"
+                                }
                             </p>
+
                         </div>
+
                     </div>
 
+
                     <div className='w-full h-[300px] rounded-xl overflow-hidden'>
+
                         <iframe
                             title='Ain Sokhna, Egypt'
                             src='https://www.google.com/maps?q=Ain+Sokhna,+Egypt&output=embed'
@@ -439,7 +634,9 @@ export default function Contact() {
                             loading='lazy'
                             referrerPolicy='no-referrer-when-downgrade'
                         />
+
                     </div>
+
 
                     <a
                         href='https://www.google.com/maps/search/?api=1&query=Ain+Sokhna+Egypt'
@@ -447,12 +644,16 @@ export default function Contact() {
                         rel='noreferrer'
                         className='btn btn-info text-white font-semibold w-full mt-5'
                     >
-                        View on Google Maps
+                        {isArabic
+                            ? "عرض الموقع على خرائط جوجل"
+                            : "View on Google Maps"
+                        }
                     </a>
 
                 </div>
 
             </div>
+
 
             {/*
             ==============================
@@ -467,7 +668,7 @@ export default function Contact() {
 
             ==============================
             */}
+
         </section>
     )
 }
-

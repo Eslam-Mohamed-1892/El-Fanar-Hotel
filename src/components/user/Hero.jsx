@@ -1,21 +1,95 @@
-import React from 'react'
-import Heroo from '../../images/Heroo.webp'
+
+import React from "react";
+import Heroo from "../../images/Heroo.webp";
 import { Link } from "react-scroll";
 
+export default function Hero({ language, theme }) {
 
-export default function Hero() {
-  return (
-    <section
-      id='hero'
-      name="hero"
-      className="w-full h-screen bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${Heroo})` }}
-    >
-      <div className='w-full h-full bg-black/40 flex flex-col justify-center items-center'>
-        <p className='tracking-wide font-bold text-[15px] md:text-[12px] lg:text-[14px] text-[#D4AF37] inter-font'>el fanar hotel</p>
-        <h1 className='text-white playFair-font font-extrabold text-[32px] md:text-3xl lg:text-5xl mb-12 md:mb-16 lg:mb-20 mt-1 md:mt-2 lg:mt-4'>Escape to Comfort</h1>
-        <Link to='contact' smooth={true} duration={1200} spy={true} className='btn btn-outline btn-info text-white inter-font'>Contact Us ↓</Link>
-      </div>
-    </section>
-  )
+    const isArabic = language === "ar";
+    const isDark = theme === "dark";
+
+    return (
+        <section
+            id="hero"
+            name="hero"
+            className="w-full h-screen bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${Heroo})` }}
+        >
+
+            <div
+                className={`
+                    w-full h-full
+                    flex flex-col justify-center items-center
+                    px-6
+                    ${isDark ? "bg-black/55" : "bg-black/40"}
+                    transition-colors duration-300
+                `}
+            >
+
+                {/* Small Text */}
+
+                <p
+                    className={`
+                        ${isArabic ? "aref-font text-lg" : "inter-font text-sm"}
+                        md:${isArabic ? "text-lg" : "text-sm"}
+                        lg:${isArabic ? "text-xl" : "text-base"}
+                        tracking-wide
+                        font-bold
+                        text-[#D4AF37]
+                        text-center
+                    `}
+                >
+                    {isArabic ? "فندق الفنار" : "El Fanar Hotel"}
+                </p>
+
+
+                {/* Main Heading */}
+
+                <h1
+                    className={`
+                        ${isArabic
+                            ? "aref-font text-5xl md:text-6xl lg:text-7xl"
+                            : "playFair-font text-4xl md:text-5xl lg:text-6xl"
+                        }
+                        text-white
+                        font-bold
+                        text-center
+                        mt-2
+                        mb-10 md:mb-12 lg:mb-14
+                    `}
+                >
+                    {isArabic
+                        ? "اهرب إلى الراحة"
+                        : "Escape to Comfort"}
+                </h1>
+
+
+                {/* Contact Button */}
+
+                <Link
+                    to="contact"
+                    smooth={true}
+                    duration={1200}
+                    spy={true}
+                    className="
+                        inter-font
+                        btn
+                        btn-outline
+                        border-[#D4AF37]
+                        text-white
+                        bg-transparent
+                        px-6
+                        hover:bg-[#D4AF37]
+                        hover:text-[#102A43]
+                        hover:border-[#D4AF37]
+                    "
+                >
+                    {isArabic ? "تواصل معنا ↓" : "Contact Us ↓"}
+                </Link>
+
+            </div>
+
+        </section>
+    );
 }
+

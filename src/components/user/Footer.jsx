@@ -9,9 +9,45 @@ import {
     FaClock,
     FaWhatsapp
 } from "react-icons/fa6"
-import { Link } from "react-scroll";
+import { Link } from "react-scroll"
 
-export default function Footer() {
+export default function Footer({ language, theme }) {
+
+    const isArabic = language === "ar"
+    const isDark = theme === "dark"
+
+    const navItems = [
+        {
+            id: "hero",
+            en: "Home",
+            ar: "الرئيسية",
+        },
+        {
+            id: "about",
+            en: "About",
+            ar: "عن الفندق",
+        },
+        {
+            id: "explore",
+            en: "Explore El Fanar",
+            ar: "اكتشف الفنار",
+        },
+        {
+            id: "rooms",
+            en: "Our Rooms",
+            ar: "غرفنا",
+        },
+        {
+            id: "faq",
+            en: "FAQ",
+            ar: "الأسئلة الشائعة",
+        },
+        {
+            id: "contact",
+            en: "Contact",
+            ar: "تواصل معنا",
+        },
+    ]
 
     const socialLinks = [
         {
@@ -26,132 +62,122 @@ export default function Footer() {
         }
     ]
 
-    const data = [
+    const contactData = [
         {
             id: 1,
             icon: FaLocationDot,
-            p1: "Address: ",
-            p2: "Ain Sokhna, Egypt"
+            enLabel: "Address:",
+            arLabel: "العنوان:",
+            enValue: "Ain Sokhna, Egypt",
+            arValue: "العين السخنة، مصر",
         },
         {
             id: 2,
             icon: FaPhone,
-            p1: "Phone: ",
-            p2: "01050838177",
-            href: "tel:01050838177"
+            enLabel: "Phone:",
+            arLabel: "الهاتف:",
+            enValue: "01050838177",
+            arValue: "01050838177",
+            href: "tel:01050838177",
         },
         {
             id: 3,
             icon: FaEnvelope,
-            p1: "Email: ",
-            p2: "eslameldakhli189@gmail.com",
-            href: "mailto:eslameldakhli189@gmail.com"
+            enLabel: "Email:",
+            arLabel: "البريد الإلكتروني:",
+            enValue: "eslameldakhli189@gmail.com",
+            arValue: "eslameldakhli189@gmail.com",
+            href: "mailto:eslameldakhli189@gmail.com",
         },
         {
             id: 4,
             icon: FaClock,
-            p1: "Reception: ",
-            p2: "24/7"
+            enLabel: "Reception:",
+            arLabel: "الاستقبال:",
+            enValue: "24/7",
+            arValue: "24/7",
         },
     ]
 
+    const footerBackground = isDark
+        ? "bg-[#081A2B]"
+        : "bg-[#0F2D3C]"
+
+    const textFont = isArabic
+        ? "aref-font"
+        : "inter-font"
+
     return (
         <footer
-            id='footer'
+            id="footer"
             name="footer"
-            className='w-full bg-[#0F2D3C] text-white inter-font px-6 md:px-8 lg:px-10 py-10'
+            className={`
+                w-full
+                ${footerBackground}
+                text-white
+                ${textFont}
+                px-6 md:px-8 lg:px-10
+                py-10
+            `}
         >
 
-            <div className='w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-8'>
+            {/* Main Footer */}
+
+            <div className="
+                w-full
+                mx-auto
+                grid
+                grid-cols-1
+                md:grid-cols-2
+                lg:grid-cols-4
+                gap-8
+            ">
 
                 {/* About */}
 
-                <div className='flex flex-col gap-3 mb-4'>
-                    <h1 className='font-extrabold text-[#D4AF37]'>
-                        El Fanar Hotel
-                    </h1>
+                <div className="flex flex-col gap-3">
 
-                    <p className='font-semibold'>
-                        Escape to Comfort, where every stay becomes a memorable experience.
+                    <h2 className="font-extrabold text-[#D4AF37] text-xl">
+                        {isArabic ? "فندق الفنار" : "El Fanar Hotel"}
+                    </h2>
+
+                    <p className="font-semibold leading-relaxed text-gray-200">
+                        {
+                            isArabic
+                                ? "اهرب إلى الراحة، حيث تصبح كل إقامة تجربة لا تُنسى."
+                                : "Escape to Comfort, where every stay becomes a memorable experience."
+                        }
                     </p>
+
                 </div>
 
 
                 {/* Quick Links */}
 
-                <div className='flex flex-col gap-3 mb-4'>
+                <div className="flex flex-col gap-3">
 
-                    <h1 className='font-extrabold text-[#D4AF37]'>
-                        Quick Links
-                    </h1>
+                    <h2 className="font-extrabold text-[#D4AF37] text-xl">
+                        {isArabic ? "روابط سريعة" : "Quick Links"}
+                    </h2>
 
-                    <nav className='flex flex-col gap-2 font-semibold cursor-pointer'>
+                    <nav className="flex flex-col gap-2 font-semibold">
 
-                        <Link
-                            spy={true}
-                            offset={-90}
-                            to='hero'
-                            smooth={true}
-                            duration={1200}
-                            className='hover:text-[#D4AF37] transition-colors hover:translate-x-1'
-                        >
-                            Home
-                        </Link>
-
-                        <Link
-                            spy={true}
-                            offset={-90}
-                            to='about'
-                            smooth={true}
-                            duration={1200}
-                            className='hover:text-[#D4AF37] transition-colors hover:translate-x-1'
-                        >
-                            About
-                        </Link>
-
-                        <Link
-                            spy={true}
-                            offset={-90}
-                            to='explore'
-                            smooth={true}
-                            duration={1200}
-                            className='hover:text-[#D4AF37] transition-colors hover:translate-x-1'
-                        >
-                            Explore El Fanar
-                        </Link>
-
-                        <Link
-                            offset={-90}
-                            spy={true}
-                            activeClass="text-[#D4AF37]"
-                            to='rooms'
-                            smooth={true}
-                            duration={1200}
-                        >
-                            Our Rooms
-                        </Link>
-
-                        <Link
-                            spy={true}
-                            offset={-90}
-                            to='faq'
-                            smooth={true}
-                            duration={1200}
-                            className='hover:text-[#D4AF37] transition-colors hover:translate-x-1'
-                        >
-                            FAQ
-                        </Link>
-
-                        <Link
-                            spy={true}
-                            offset={-90}
-                            to='contact'
-                            smooth={true}
-                            duration={1200}
-                            className='hover:text-[#D4AF37] transition-colors hover:translate-x-1'
-                        >
-                            Contact
-                        </Link>
+                        {
+                            navItems.map((item) => (
+                                <Link
+                                    key={item.id}
+                                    spy={true}
+                                    offset={-90}
+                                    activeClass="text-[#D4AF37]"
+                                    to={item.id}
+                                    smooth={true}
+                                    duration={1200}
+                                    className="cursor-pointer"
+                                >
+                                    {isArabic ? item.ar : item.en}
+                                </Link>
+                            ))
+                        }
 
                     </nav>
 
@@ -160,42 +186,50 @@ export default function Footer() {
 
                 {/* Contact */}
 
-                <div className='flex flex-col gap-3 mb-4'>
+                <div className="flex flex-col gap-3">
 
-                    <h1 className='font-extrabold text-[#D4AF37]'>
-                        Contact
-                    </h1>
+                    <h2 className="font-extrabold text-[#D4AF37] text-xl">
+                        {isArabic ? "تواصل معنا" : "Contact"}
+                    </h2>
 
-                    <div className='w-full'>
+                    <div className="flex flex-col">
 
                         {
-                            data.map((data) => {
+                            contactData.map((item) => {
 
-                                const Icon = data.icon
+                                const Icon = item.icon
+
+                                const label = isArabic
+                                    ? item.arLabel
+                                    : item.enLabel
+
+                                const value = isArabic
+                                    ? item.arValue
+                                    : item.enValue
 
                                 return (
                                     <div
-                                        className='text-white flex items-center gap-3'
-                                        key={data.id}
+                                        key={item.id}
+                                        className="flex items-center gap-3"
                                     >
 
-                                        <Icon className='text-[#D4AF37] text-lg shrink-0' />
+                                        <Icon className="text-[#D4AF37] text-lg shrink-0" />
 
-                                        <p className='pt-4 pb-4 font-bold'>
-                                            {data.p1}
+                                        <p className="font-bold whitespace-nowrap">
+                                            {label}
                                         </p>
 
                                         {
-                                            data.href ? (
+                                            item.href ? (
                                                 <a
-                                                    href={data.href}
-                                                    className='font-semibold text-gray-300 break-all'
+                                                    href={item.href}
+                                                    className="font-semibold text-gray-300 break-all"
                                                 >
-                                                    {data.p2}
+                                                    {value}
                                                 </a>
                                             ) : (
-                                                <p className='font-semibold text-gray-300'>
-                                                    {data.p2}
+                                                <p className="font-semibold text-gray-300">
+                                                    {value}
                                                 </p>
                                             )
                                         }
@@ -209,19 +243,19 @@ export default function Footer() {
                         {/* WhatsApp */}
 
                         <a
-                            href='https://wa.me/201050838177'
-                            target='_blank'
-                            rel='noreferrer'
-                            className='text-white flex items-center gap-3'
+                            href="https://wa.me/201050838177"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="flex items-center gap-3"
                         >
 
-                            <FaWhatsapp className='text-[#D4AF37] text-lg shrink-0' />
+                            <FaWhatsapp className="text-[#D4AF37] text-lg shrink-0" />
 
-                            <p className='pt-4 pb-4 font-bold'>
-                                WhatsApp:
+                            <p className="font-bold whitespace-nowrap">
+                                {isArabic ? "واتساب:" : "WhatsApp:"}
                             </p>
 
-                            <p className='font-semibold text-gray-300'>
+                            <p className="font-semibold text-gray-300">
                                 01050838177
                             </p>
 
@@ -234,13 +268,13 @@ export default function Footer() {
 
                 {/* Follow Us */}
 
-                <div className='flex flex-col gap-3 mb-4 lg:px-15'>
+                <div className="flex flex-col gap-3 lg:px-10">
 
-                    <h1 className='font-extrabold text-[#D4AF37]'>
-                        Follow Us
-                    </h1>
+                    <h2 className="font-extrabold text-[#D4AF37] text-xl">
+                        {isArabic ? "تابعنا" : "Follow Us"}
+                    </h2>
 
-                    <div className='flex gap-4'>
+                    <div className="flex gap-4">
 
                         {
                             socialLinks.map((item) => {
@@ -248,18 +282,27 @@ export default function Footer() {
                                 const Icon = item.icon
 
                                 return (
-                                    <div key={item.id}>
-
-                                        <a
-                                            href={item.link}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className='inline-flex justify-center items-center text-2xl h-10 w-10 bg-white text-[#D4AF37] rounded-full border border-[#D4AF37]'
-                                        >
-                                            <Icon />
-                                        </a>
-
-                                    </div>
+                                    <a
+                                        key={item.id}
+                                        href={item.link}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="
+                                            inline-flex
+                                            justify-center
+                                            items-center
+                                            text-2xl
+                                            h-10
+                                            w-10
+                                            bg-white
+                                            text-[#D4AF37]
+                                            rounded-full
+                                            border
+                                            border-[#D4AF37]
+                                        "
+                                    >
+                                        <Icon />
+                                    </a>
                                 )
                             })
                         }
@@ -273,34 +316,55 @@ export default function Footer() {
 
             {/* Contact CTA */}
 
-            <div className='flex flex-col gap-3 mb-6 mt-6'>
+            <div className="flex flex-col gap-3 mt-10 mb-6">
 
-                <p className='font-semibold md:text-center'>
-                    Ready for your next vacation?
+                <p className="font-semibold md:text-center text-lg">
+                    {
+                        isArabic
+                            ? "جاهز لعطلتك القادمة؟"
+                            : "Ready for your next vacation?"
+                    }
                 </p>
 
                 <Link
-                    to='contact'
+                    to="contact"
                     smooth={true}
                     duration={1200}
                     offset={-90}
-                    className='btn btn-outline btn-info text-white'
+                    className="
+                        btn
+                        btn-outline
+                        btn-info
+                        text-white
+                        w-full
+                        md:w-auto
+                        md:self-center
+                    "
                 >
-                    Contact Us
+                    {isArabic ? "تواصل معنا" : "Contact Us"}
                 </Link>
 
             </div>
 
 
-            <div className='border-solid bg-white border-2 mb-4'></div>
+            {/* Divider */}
 
-            <p className='font-semibold text-center'>
-                Designed with ❤️ using React & Tailwind CSS.
+            <div className="border-solid bg-white border-2 mb-4"></div>
+
+
+            {/* Copyright */}
+
+            <p className="font-semibold text-center text-gray-200">
+                {
+                    isArabic
+                        ? "تم التصميم باستخدام React و Tailwind CSS ❤️"
+                        : "Designed with ❤️ using React & Tailwind CSS."
+                }
             </p>
 
-            <h1 className='font-extrabold my-6'>
+            <h3 className="font-extrabold text-center mt-5">
                 Designed by F.E.D : Eslam Mohamed
-            </h1>
+            </h3>
 
         </footer>
     )

@@ -1,45 +1,61 @@
-
 import React, { useState } from 'react'
 
-export default function FAQ() {
+export default function FAQ({ language, theme }) {
 
     const [openIndex, setOpenIndex] = useState(null)
+
+    const isArabic = language === "ar"
+    const isDark = theme === "dark"
 
     const questions = [
         {
             id: 1,
             question: "What time is breakfast served?",
-            answer: "Breakfast is served daily from 8:00 AM to 10:00 AM."
+            questionAr: "ما هو موعد تقديم وجبة الإفطار؟",
+            answer: "Breakfast is served daily from 8:00 AM to 10:00 AM.",
+            answerAr: "يتم تقديم وجبة الإفطار يوميًا من الساعة 8:00 صباحًا حتى الساعة 10:00 صباحًا."
         },
         {
             id: 2,
             question: "Is the reception available 24 hours?",
-            answer: "Yes, our reception team is available 24 hours a day to assist our guests."
+            questionAr: "هل مكتب الاستقبال متاح على مدار 24 ساعة؟",
+            answer: "Yes, our reception team is available 24 hours a day to assist our guests.",
+            answerAr: "نعم، فريق الاستقبال متاح على مدار 24 ساعة يوميًا لمساعدة ضيوفنا."
         },
         {
             id: 3,
             question: "What are the room service hours?",
-            answer: "Room service is available daily from 8:00 AM to 4:00 PM."
+            questionAr: "ما هي مواعيد خدمة الغرف؟",
+            answer: "Room service is available daily from 8:00 AM to 4:00 PM.",
+            answerAr: "خدمة الغرف متاحة يوميًا من الساعة 8:00 صباحًا حتى الساعة 4:00 مساءً."
         },
         {
             id: 4,
             question: "Can I add an extra bed to my room?",
-            answer: "Yes, an extra bed can be added to any room upon request with an additional charge added to the room bill."
+            questionAr: "هل يمكنني إضافة سرير إضافي إلى غرفتي؟",
+            answer: "Yes, an extra bed can be added to any room upon request with an additional charge added to the room bill.",
+            answerAr: "نعم، يمكن إضافة سرير إضافي إلى أي غرفة عند الطلب، مع إضافة تكلفة إضافية إلى فاتورة الغرفة."
         },
         {
             id: 5,
             question: "How far is the hotel from the beach?",
-            answer: "El Fanar Hotel offers easy access to the beach for a relaxing seaside experience."
+            questionAr: "كم يبعد الفندق عن الشاطئ؟",
+            answer: "El Fanar Hotel offers easy access to the beach for a relaxing seaside experience.",
+            answerAr: "يوفر فندق الفنار سهولة الوصول إلى الشاطئ للاستمتاع بتجربة هادئة ومريحة على البحر."
         },
         {
             id: 6,
             question: "Is Wi-Fi available at the hotel?",
-            answer: "Yes, free Wi-Fi is available for our guests."
+            questionAr: "هل تتوفر خدمة الواي فاي في الفندق؟",
+            answer: "Yes, free Wi-Fi is available for our guests.",
+            answerAr: "نعم، تتوفر خدمة الواي فاي المجانية لضيوفنا."
         },
         {
             id: 7,
             question: "Do you have parking available?",
-            answer: "Yes, parking facilities are available for hotel guests."
+            questionAr: "هل تتوفر مواقف للسيارات؟",
+            answer: "Yes, parking facilities are available for hotel guests.",
+            answerAr: "نعم، تتوفر مواقف للسيارات لضيوف الفندق."
         }
     ]
 
@@ -53,17 +69,32 @@ export default function FAQ() {
     const renderQuestion = (item) => (
         <div
             key={item.id}
-            className='bg-white rounded-xl shadow-xl overflow-hidden'
+            className={`
+                rounded-xl
+                shadow-xl
+                overflow-hidden
+                ${isDark ? "bg-[#102A43]" : "bg-white"}
+            `}
         >
 
             <button
                 type='button'
                 onClick={() => toggleQuestion(item.id)}
-                className='w-full flex justify-between items-center gap-5 p-5 text-left font-bold text-black'
+                className={`
+                    w-full
+                    flex
+                    justify-between
+                    items-center
+                    gap-5
+                    p-5
+                    font-bold
+                    ${isArabic ? "text-right" : "text-left"}
+                    ${isDark ? "text-white" : "text-black"}
+                `}
             >
 
                 <span>
-                    {item.question}
+                    {isArabic ? item.questionAr : item.question}
                 </span>
 
                 <span className='text-[#D4AF37] text-xl shrink-0'>
@@ -72,12 +103,22 @@ export default function FAQ() {
 
             </button>
 
+
             {
                 openIndex === item.id && (
                     <div className='px-5 pb-5'>
-                        <p className='text-[#1F2937] leading-relaxed'>
-                            {item.answer}
+
+                        <p
+                            className={`
+                                text-base
+                                md:text-lg
+                                leading-relaxed
+                                ${isDark ? "text-gray-300" : "text-[#1F2937]"}
+                            `}
+                        >
+                            {isArabic ? item.answerAr : item.answer}
                         </p>
+
                     </div>
                 )
             }
@@ -89,17 +130,44 @@ export default function FAQ() {
         <section
             id='faq'
             name="faq"
-            className='w-full bg-neutral-100 py-10 px-6 md:px-8 lg:px-10 inter-font'
+            className={`
+                w-full
+                py-10
+                px-6 md:px-8 lg:px-10
+                ${isDark ? "bg-[#081A2B]" : "bg-neutral-100"}
+                ${isArabic ? "aref-font" : "inter-font"}
+            `}
         >
 
             <div className='text-center mb-8'>
 
-                <h1 className='text-black font-bold text-lg md:text-2xl lg:text-3xl font playFair-font'>
-                    Frequently Asked Questions
+                <h1
+                    className={`
+                        font-bold
+                        text-lg md:text-2xl lg:text-3xl
+                        ${isDark ? "text-[#D4AF37]" : "text-[#102A43]"}
+                    `}
+                >
+                    {isArabic
+                        ? "الأسئلة الشائعة"
+                        : "Frequently Asked Questions"
+                    }
                 </h1>
 
-                <p className='font-semibold text-[#1F2937] leading-relaxed mb-6 my-4'>
-                    Find answers to the most common questions about your stay at El Fanar Hotel.
+                <p
+                    className={`
+                        font-semibold
+                        text-base md:text-lg
+                        leading-relaxed
+                        mb-6
+                        my-4
+                        ${isDark ? "text-gray-300" : "text-[#1F2937]"}
+                    `}
+                >
+                    {isArabic
+                        ? "تعرف على إجابات أكثر الأسئلة شيوعًا حول إقامتك في فندق الفنار."
+                        : "Find answers to the most common questions about your stay at El Fanar Hotel."
+                    }
                 </p>
 
             </div>
@@ -129,4 +197,3 @@ export default function FAQ() {
         </section>
     )
 }
-
