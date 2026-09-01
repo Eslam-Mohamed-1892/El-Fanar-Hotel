@@ -15,6 +15,11 @@ export default function Explore({ language, theme }) {
     const isArabic = language === 'ar'
     const isDark = theme === 'dark'
 
+    const buttonStyle = isDark
+        ? "border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white active:bg-[#D4AF37] active:text-white"
+        : "btn-info text-white";
+
+
     const facilities = [
         {
             id: 1,
@@ -253,12 +258,7 @@ export default function Explore({ language, theme }) {
                                     className={`
                                         btn
                                         btn-outline
-                                        border-[#D4AF37]
-                                        text-white
-                                        bg-transparent
-                                        hover:bg-[#D4AF37]
-                                        hover:text-[#102A43]
-                                        hover:border-[#D4AF37]
+${buttonStyle}
                                         font-semibold
                                         w-fit
                                         ${isArabic ? 'aref-font text-lg' : 'inter-font'}

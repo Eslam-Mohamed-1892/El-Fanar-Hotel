@@ -303,6 +303,11 @@ export default function Contact({ language, theme }) {
     const isArabic = language === "ar"
     const isDark = theme === "dark"
 
+    const buttonStyle = isDark
+        ? "border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white active:bg-[#D4AF37] active:text-white"
+        : "btn-info text-black hover:text-white";
+
+
     const data = [
         {
             id: 1,
@@ -406,10 +411,9 @@ export default function Contact({ language, theme }) {
                         lg:shadow-none
                         lg:p-0
                         w-full lg:w-[38%]
-                        ${
-                            isDark
-                                ? "bg-[#102A43]"
-                                : "bg-white shadow-2xl"
+                        ${isDark
+                            ? "bg-[#102A43]"
+                            : "bg-white shadow-2xl"
                         }
                     `}
                 >
@@ -423,10 +427,9 @@ export default function Contact({ language, theme }) {
                                     whitespace-normal
                                     lg:rounded-xl
                                     lg:p-5
-                                    ${
-                                        isDark
-                                            ? "lg:bg-[#102A43]"
-                                            : "lg:bg-white lg:shadow-xl"
+                                    ${isDark
+                                        ? "lg:bg-[#102A43]"
+                                        : "lg:bg-white lg:shadow-xl"
                                     }
                                 `}
                                 key={data.id}
@@ -448,10 +451,9 @@ export default function Contact({ language, theme }) {
                                                 font-semibold
                                                 break-normal
                                                 whitespace-normal
-                                                ${
-                                                    isDark
-                                                        ? "text-gray-200"
-                                                        : "text-[#1F2937]"
+                                                ${isDark
+                                                    ? "text-gray-200"
+                                                    : "text-[#1F2937]"
                                                 }
                                             `}
                                         >
@@ -463,10 +465,9 @@ export default function Contact({ language, theme }) {
                                             className={`
                                                 font-semibold
                                                 break-all
-                                                ${
-                                                    isDark
-                                                        ? "text-gray-200"
-                                                        : "text-[#1F2937]"
+                                                ${isDark
+                                                    ? "text-gray-200"
+                                                    : "text-[#1F2937]"
                                                 }
                                             `}
                                         >
@@ -478,10 +479,9 @@ export default function Contact({ language, theme }) {
                                                 font-semibold
                                                 break-normal
                                                 whitespace-normal
-                                                ${
-                                                    isDark
-                                                        ? "text-gray-200"
-                                                        : "text-[#1F2937]"
+                                                ${isDark
+                                                    ? "text-gray-200"
+                                                    : "text-[#1F2937]"
                                                 }
                                             `}
                                         >
@@ -505,10 +505,9 @@ export default function Contact({ language, theme }) {
                             flex gap-4 items-center
                             lg:rounded-xl
                             lg:p-5
-                            ${
-                                isDark
-                                    ? "lg:bg-[#102A43]"
-                                    : "lg:bg-white lg:shadow-xl"
+                            ${isDark
+                                ? "lg:bg-[#102A43]"
+                                : "lg:bg-white lg:shadow-xl"
                             }
                         `}
                     >
@@ -523,10 +522,9 @@ export default function Contact({ language, theme }) {
                             className={`
                                 font-semibold
                                 break-all
-                                ${
-                                    isDark
-                                        ? "text-gray-200"
-                                        : "text-[#1F2937]"
+                                ${isDark
+                                    ? "text-gray-200"
+                                    : "text-[#1F2937]"
                                 }
                             `}
                         >
@@ -549,10 +547,9 @@ export default function Contact({ language, theme }) {
                                 leading-relaxed
                                 break-normal
                                 whitespace-normal
-                                ${
-                                    isDark
-                                        ? "text-gray-300"
-                                        : "text-[#1F2937]"
+                                ${isDark
+                                    ? "text-gray-300"
+                                    : "text-[#1F2937]"
                                 }
                             `}
                         >
@@ -576,10 +573,9 @@ export default function Contact({ language, theme }) {
                         rounded-2xl
                         shadow-2xl
                         p-8
-                        ${
-                            isDark
-                                ? "bg-[#102A43]"
-                                : "bg-white"
+                        ${isDark
+                            ? "bg-[#102A43]"
+                            : "bg-white"
                         }
                     `}
                 >
@@ -594,10 +590,9 @@ export default function Contact({ language, theme }) {
                                 className={`
                                     font-bold
                                     text-xl
-                                    ${
-                                        isDark
-                                            ? "text-white"
-                                            : "text-black"
+                                    ${isDark
+                                        ? "text-white"
+                                        : "text-black"
                                     }
                                 `}
                             >
@@ -607,10 +602,9 @@ export default function Contact({ language, theme }) {
                             <p
                                 className={`
                                     font-semibold
-                                    ${
-                                        isDark
-                                            ? "text-gray-300"
-                                            : "text-[#1F2937]"
+                                    ${isDark
+                                        ? "text-gray-300"
+                                        : "text-[#1F2937]"
                                     }
                                 `}
                             >
@@ -642,7 +636,7 @@ export default function Contact({ language, theme }) {
                         href='https://www.google.com/maps/search/?api=1&query=Ain+Sokhna+Egypt'
                         target='_blank'
                         rel='noreferrer'
-                        className='btn btn-info text-white font-semibold w-full mt-5'
+                        className={`btn btn-outline font-semibold w-full mt-5 ${buttonStyle}`}
                     >
                         {isArabic
                             ? "عرض الموقع على خرائط جوجل"

@@ -8,6 +8,10 @@ export default function Hero({ language, theme }) {
     const isArabic = language === "ar";
     const isDark = theme === "dark";
 
+    const buttonStyle = isDark
+        ? "border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white active:bg-[#D4AF37] active:text-white"
+        : "btn-info text-white";
+
     return (
         <section
             id="hero"
@@ -71,18 +75,12 @@ export default function Hero({ language, theme }) {
                     smooth={true}
                     duration={1200}
                     spy={true}
-                    className="
+                    className={`
                         inter-font
                         btn
                         btn-outline
-                        border-[#D4AF37]
-                        text-white
-                        bg-transparent
-                        px-6
-                        hover:bg-[#D4AF37]
-                        hover:text-[#102A43]
-                        hover:border-[#D4AF37]
-                    "
+${buttonStyle}
+                    `}
                 >
                     {isArabic ? "تواصل معنا ↓" : "Contact Us ↓"}
                 </Link>

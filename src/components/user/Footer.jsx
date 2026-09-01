@@ -49,6 +49,10 @@ export default function Footer({ language, theme }) {
         },
     ]
 
+    const buttonStyle = isDark
+        ? "border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white active:bg-[#D4AF37] active:text-white"
+        : "btn-info text-white";
+
     const socialLinks = [
         {
             id: 1,
@@ -331,15 +335,12 @@ export default function Footer({ language, theme }) {
                     smooth={true}
                     duration={1200}
                     offset={-90}
-                    className="
-                        btn
-                        btn-outline
-                        btn-info
-                        text-white
-                        w-full
-                        md:w-auto
-                        md:self-center
-                    "
+                    className={`
+        btn
+        btn-outline
+        font-semibold
+        ${buttonStyle}
+    `}
                 >
                     {isArabic ? "تواصل معنا" : "Contact Us"}
                 </Link>
@@ -362,7 +363,7 @@ export default function Footer({ language, theme }) {
                 }
             </p>
 
-            <h3 className="font-extrabold text-center mt-5">
+            <h3 dir='ltr' className="font-extrabold mt-5">
                 Designed by F.E.D : Eslam Mohamed
             </h3>
 

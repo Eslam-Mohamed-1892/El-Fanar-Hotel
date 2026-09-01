@@ -6,6 +6,10 @@ export default function Rooms({ language, theme }) {
 
     const isArabic = language === "ar";
     const isDark = theme === "dark";
+    const buttonStyle = isDark
+        ? "border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white active:bg-[#D4AF37] active:text-white"
+        : "btn-info text-black hover:text-white";
+
 
     return (
         <section
@@ -77,10 +81,9 @@ export default function Rooms({ language, theme }) {
                             h-full
                             transition-all
                             duration-300
-                            ${
-                                isDark
-                                    ? "bg-[#102A43]"
-                                    : "bg-white"
+                            ${isDark
+                                ? "bg-[#102A43]"
+                                : "bg-white"
                             }
                             hover:-translate-y-1
                             hover:shadow-2xl
@@ -112,10 +115,9 @@ export default function Rooms({ language, theme }) {
                                     className={`
                                         text-lg md:text-xl
                                         font-semibold
-                                        ${
-                                            isDark
-                                                ? "text-[#D4AF37]"
-                                                : "text-[#102A43]"
+                                        ${isDark
+                                            ? "text-[#D4AF37]"
+                                            : "text-[#102A43]"
                                         }
                                     `}
                                 >
@@ -130,10 +132,9 @@ export default function Rooms({ language, theme }) {
                                         text-lg
                                         font-bold
                                         whitespace-nowrap
-                                        ${
-                                            isDark
-                                                ? "text-white"
-                                                : "text-[#102A43]"
+                                        ${isDark
+                                            ? "text-white"
+                                            : "text-[#102A43]"
                                         }
                                     `}
                                 >
@@ -161,10 +162,9 @@ export default function Rooms({ language, theme }) {
                                     <span
                                         className={`
                                             font-semibold
-                                            ${
-                                                isDark
-                                                    ? "text-white"
-                                                    : "text-black"
+                                            ${isDark
+                                                ? "text-white"
+                                                : "text-black"
                                             }
                                         `}
                                     >
@@ -189,20 +189,18 @@ export default function Rooms({ language, theme }) {
                                     <span
                                         className={`
                                             font-semibold
-                                            ${
-                                                isDark
-                                                    ? "text-white"
-                                                    : "text-black"
+                                            ${isDark
+                                                ? "text-white"
+                                                : "text-black"
                                             }
                                         `}
                                     >
                                         {" "}
 
                                         {room.beds.king > 0 &&
-                                            `${room.beds.king} ${
-                                                isArabic
-                                                    ? "سرير كبير"
-                                                    : "King Bed"
+                                            `${room.beds.king} ${isArabic
+                                                ? "سرير كبير"
+                                                : "King Bed"
                                             }`
                                         }
 
@@ -212,10 +210,9 @@ export default function Rooms({ language, theme }) {
                                         }
 
                                         {room.beds.single > 0 &&
-                                            `${room.beds.single} ${
-                                                isArabic
-                                                    ? "سرير مفرد"
-                                                    : "Single Bed"
+                                            `${room.beds.single} ${isArabic
+                                                ? "سرير مفرد"
+                                                : "Single Bed"
                                             }`
                                         }
 
@@ -237,10 +234,9 @@ export default function Rooms({ language, theme }) {
                                     <span
                                         className={`
                                             font-semibold
-                                            ${
-                                                isDark
-                                                    ? "text-white"
-                                                    : "text-black"
+                                            ${isDark
+                                                ? "text-white"
+                                                : "text-black"
                                             }
                                         `}
                                     >
@@ -270,10 +266,9 @@ export default function Rooms({ language, theme }) {
                                     <span
                                         className={`
                                             font-semibold
-                                            ${
-                                                isDark
-                                                    ? "text-white"
-                                                    : "text-black"
+                                            ${isDark
+                                                ? "text-white"
+                                                : "text-black"
                                             }
                                         `}
                                     >
@@ -304,10 +299,9 @@ export default function Rooms({ language, theme }) {
                                 className={`
                                     text-base md:text-lg
                                     leading-relaxed
-                                    ${
-                                        isDark
-                                            ? "text-gray-300"
-                                            : "text-gray-600"
+                                    ${isDark
+                                        ? "text-gray-300"
+                                        : "text-gray-600"
                                     }
                                 `}
                             >
@@ -327,18 +321,14 @@ export default function Rooms({ language, theme }) {
                                 spy={true}
                                 className={`
                                     btn
-                                    btn-info
+                                     ${buttonStyle}
                                     btn-outline
                                     w-full
                                     text-sm
                                     md:text-base
                                     mt-auto
                                     font-semibold
-                                    ${
-                                        isDark
-                                            ? "text-white"
-                                            : "text-[#102A43]"
-                                    }
+
                                 `}
                             >
                                 {isArabic
