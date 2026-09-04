@@ -336,6 +336,7 @@ export default function Footer({ language, theme }) {
                     duration={1200}
                     offset={-90}
                     className={`
+                        text-lg
         btn
         btn-outline
         font-semibold

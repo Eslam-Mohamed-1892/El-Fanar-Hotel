@@ -144,7 +144,7 @@ export default function FAQ({ language, theme }) {
                 <h1
                     className={`
                         font-bold
-                        text-lg md:text-2xl lg:text-3xl
+                        text-2xl md:text-3xl lg:text-4xl
                         ${isDark ? "text-[#D4AF37]" : "text-[#102A43]"}
                     `}
                 >

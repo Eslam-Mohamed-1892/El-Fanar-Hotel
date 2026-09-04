@@ -26,7 +26,7 @@ export default function Rooms({ language, theme }) {
 
             <div className="text-center">
 
-                <h2
+                <h1
                     className={`
                         text-2xl md:text-3xl lg:text-4xl
                         font-semibold
@@ -34,7 +34,7 @@ export default function Rooms({ language, theme }) {
                     `}
                 >
                     {isArabic ? "غرفنا" : "Our Rooms"}
-                </h2>
+                </h1>
 
                 <p
                     className={`
@@ -113,7 +113,7 @@ export default function Rooms({ language, theme }) {
 
                                 <h3
                                     className={`
-                                        text-lg md:text-xl
+                                        text-xl md:text-2xl
                                         font-semibold
                                         ${isDark
                                             ? "text-[#D4AF37]"
@@ -324,7 +324,7 @@ export default function Rooms({ language, theme }) {
                                      ${buttonStyle}
                                     btn-outline
                                     w-full
-                                    text-sm
+                                    text-lg
                                     md:text-base
                                     mt-auto
                                     font-semibold

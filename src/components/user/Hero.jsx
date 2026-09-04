@@ -76,10 +76,12 @@ export default function Hero({ language, theme }) {
                     duration={1200}
                     spy={true}
                     className={`
-                        inter-font
+                        text-lg
                         btn
                         btn-outline
 ${buttonStyle}
+                    {isArabic ? "تواصل معنا" : "Contact Us"}
+
                     `}
                 >
                     {isArabic ? "تواصل معنا ↓" : "Contact Us ↓"}

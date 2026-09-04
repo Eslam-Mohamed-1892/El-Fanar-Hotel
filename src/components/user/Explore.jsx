@@ -18,6 +18,9 @@ export default function Explore({ language, theme }) {
     const buttonStyle = isDark
         ? "border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white active:bg-[#D4AF37] active:text-white"
         : "btn-info text-white";
+    const buttonStyle2 = isDark
+        ? "border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white active:bg-[#D4AF37] active:text-white"
+        : "btn-info text-black";
 
 
     const facilities = [
@@ -161,7 +164,7 @@ export default function Explore({ language, theme }) {
                         className={`
                             ${headingColor}
                             font-bold
-                            text-lg md:text-2xl lg:text-3xl
+                            text-2xl md:text-3xl lg:text-4xl
                             ${isArabic ? 'aref-font' : 'inter-font'}
                         `}
                     >
@@ -256,12 +259,13 @@ export default function Explore({ language, theme }) {
                                     type="button"
                                     onClick={() => openModal(facility)}
                                     className={`
+                                        text-lg
                                         btn
                                         btn-outline
 ${buttonStyle}
                                         font-semibold
                                         w-fit
-                                        ${isArabic ? 'aref-font text-lg' : 'inter-font'}
+                                        ${isArabic ? 'aref-font' : 'inter-font'}
                                     `}
                                 >
                                     {facility.button}
@@ -397,13 +401,7 @@ ${buttonStyle}
                                 className={`
                                     btn
                                     btn-outline
-                                    border-[#D4AF37]
-                                    text-[#102A43]
-                                    bg-transparent
-                                    hover:bg-[#D4AF37]
-                                    hover:text-[#102A43]
-                                    hover:border-[#D4AF37]
-                                    font-semibold
+${buttonStyle2}                                    font-semibold
                                     mt-6
                                     ${isArabic ? 'aref-font text-lg' : 'inter-font'}
                                 `}

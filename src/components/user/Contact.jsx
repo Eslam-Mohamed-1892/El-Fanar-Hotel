@@ -356,7 +356,7 @@ export default function Contact({ language, theme }) {
                 <h1
                     className={`
                         font-bold
-                        text-lg md:text-2xl lg:text-3xl
+                        text-2xl md:text-3xl lg:text-4xl
                         ${isDark ? "text-[#D4AF37]" : "text-[#102A43]"}
                     `}
                 >
@@ -633,10 +633,10 @@ export default function Contact({ language, theme }) {
 
 
                     <a
-                        href='https://www.google.com/maps/search/?api=1&query=Ain+Sokhna+Egypt'
+                        href='https://www.google.com/maps/place/Fanar+De+Luna+Resort/@29.3012048,32.6016292,17z/data=!4m9!3m8!1s0x1457acfc4a773e89:0x8a1eda3632c29fa5!5m2!4m1!1i2!8m2!3d29.3012048!4d32.5990543!16s%2Fg%2F11b5phxjvl?entry=ttu&g_ep=EgoyMDI2MDkwMS4wIKXMDSoASAFQAw%3D%3D'
                         target='_blank'
                         rel='noreferrer'
-                        className={`btn btn-outline font-semibold w-full mt-5 ${buttonStyle}`}
+                        className={`btn btn-outline font-semibold text-lg w-full mt-5 ${buttonStyle}`}
                     >
                         {isArabic
                             ? "عرض الموقع على خرائط جوجل"

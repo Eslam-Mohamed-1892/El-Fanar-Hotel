@@ -112,7 +112,7 @@ export default function About({ language, theme }) {
                     className={`
                         ${headingColor}
                         font-bold
-                        text-lg md:text-2xl lg:text-3xl
+                        text-2xl md:text-3xl lg:text-4xl
                         ${isArabic ? 'aref-font' : 'inter-font'}
                     `}
                 >
