@@ -157,11 +157,14 @@ export default function FAQ({ language, theme }) {
                 <p
                     className={`
                         font-semibold
-                        text-base md:text-lg
                         leading-relaxed
+                        text-base md:text-lg
                         mb-6
                         my-4
-                        ${isDark ? "text-gray-300" : "text-[#1F2937]"}
+                            ${isArabic
+                            ? 'aref-font text-lg lg:text-xl text-[#1F2937]'
+                            : 'inter-font text-base text-gray-300'
+                        }
                     `}
                 >
                     {isArabic

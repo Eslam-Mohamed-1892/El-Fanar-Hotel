@@ -176,11 +176,12 @@ export default function Explore({ language, theme }) {
                             ${paragraphColor}
                             font-semibold
                             leading-relaxed
+                            text-base md:text-lg
                             mb-6 my-4
                             ${isArabic
-                                ? 'aref-font text-lg md:text-lg lg:text-xl'
-                                : 'inter-font text-base'
-                            }
+                            ? 'aref-font text-lg lg:text-xl text-[#1F2937]'
+                            : 'inter-font text-base text-gray-300'
+                        }
                         `}
                     >
                         {isArabic

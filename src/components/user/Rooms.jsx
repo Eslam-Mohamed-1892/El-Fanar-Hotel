@@ -39,8 +39,13 @@ export default function Rooms({ language, theme }) {
                 <p
                     className={`
                         mt-2
+                        font-semibold
+                        leading-relaxed
                         text-base md:text-lg
-                        ${isDark ? "text-gray-300" : "text-gray-600"}
+                            ${isArabic
+                            ? 'aref-font text-lg lg:text-xl text-[#1F2937]'
+                            : 'inter-font text-base text-gray-300'
+                        }
                     `}
                 >
                     {
